@@ -1,4 +1,4 @@
-package com.topgun.airtravel.domain;
+package com.topgun.airline.domain;
 
 public enum Airport {
     GRU("Guarulhos International Airport"),

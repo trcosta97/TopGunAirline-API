@@ -1,11 +1,19 @@
-package com.topgun.airtravel.domain;
+package com.topgun.airline.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import org.springframework.web.bind.annotation.RequestMapping;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 @Entity
 @Table(name = "tb_adress")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Adress {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,4 +29,11 @@ public class Adress {
     @OneToOne(mappedBy = "adress")
     @JoinColumn(name = "cd_user", nullable = false)
     private User user;
+    @Column(name = "bl_active", columnDefinition = "BIT(1) DEFAULT 1")
+    private Boolean active;
+
+
+    public void deactivateAdress(){
+        this.active = false;
+    }
 }

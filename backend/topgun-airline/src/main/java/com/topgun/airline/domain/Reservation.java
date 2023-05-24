@@ -1,7 +1,11 @@
-package com.topgun.airtravel.domain;
+package com.topgun.airline.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,13 +13,17 @@ import java.util.Date;
 
 @Entity
 @Table(name = "tb_reservation")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="cd_reservation")
     private Long id;
     @JoinColumn(name = "cd_user")
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private User user;
     @JoinColumn(name = "cd_flight")
     @OneToOne
@@ -29,6 +37,12 @@ public class Reservation {
     @Column(name="dt_reservation")
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-        private Date reservationDate;
+    private Date reservationDate;
+    @Column(name = "bl_active", columnDefinition = "BIT(1) DEFAULT 1")
+    private Boolean active;
+
+    public void deactivateReservation(){
+        this.active = false;
+    }
 
 }

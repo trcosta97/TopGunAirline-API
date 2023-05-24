@@ -1,7 +1,11 @@
-package com.topgun.airtravel.domain;
+package com.topgun.airline.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,12 +14,17 @@ import java.util.Date;
 
 @Entity
 @Table(name="tb_payment")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "cd_payment")
     private Long id;
     @JoinColumn(name = "cd_user", nullable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
     private User user;
     @Column(name = "vl_total_value")
     private BigDecimal value;
@@ -29,4 +38,10 @@ public class Payment {
     @JsonBackReference
     @OneToOne(mappedBy = "payment")
     private Reservation reservation;
+    @Column(name = "bl_active", columnDefinition = "BIT(1) DEFAULT 1")
+    private Boolean active;
+
+    public void deactivatePayment(){
+        this.active = false;
+    }
 }

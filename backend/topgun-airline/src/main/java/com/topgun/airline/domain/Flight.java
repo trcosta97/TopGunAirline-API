@@ -1,6 +1,10 @@
-package com.topgun.airtravel.domain;
+package com.topgun.airline.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -8,6 +12,10 @@ import java.util.Date;
 
 @Entity
 @Table(name = "tb_flight")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,4 +32,10 @@ public class Flight {
     private Airport destination;
     @Column(name = "nm_available_seats")
     private Integer availableSeats;
+    @Column(name = "bl_active", columnDefinition = "BIT(1) DEFAULT 1")
+    private Boolean active;
+
+    public void deactivateFlight(){
+        this.active = false;
+    }
 }
