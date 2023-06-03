@@ -1,6 +1,8 @@
-package com.topgun.airline.domain;
+package com.topgun.airline.domain.user;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.topgun.airline.domain.Adress;
+import com.topgun.airline.domain.Reservation;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,6 +42,13 @@ public class User {
 
     public void deactivateUser(){
         this.active = false;
+    }
+
+    public User (UserSaveDTO data){
+        this.name = data.name();
+        this.adress = data.adress();
+        this.email = data.email();
+        this.password = data.password();
     }
 
 }

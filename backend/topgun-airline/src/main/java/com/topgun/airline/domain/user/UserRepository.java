@@ -1,5 +1,6 @@
-package com.topgun.airline.domain;
+package com.topgun.airline.domain.user;
 
+import com.topgun.airline.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

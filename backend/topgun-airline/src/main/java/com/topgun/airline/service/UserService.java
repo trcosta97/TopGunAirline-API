@@ -1,7 +1,8 @@
 package com.topgun.airline.service;
 
-import com.topgun.airline.domain.User;
-import com.topgun.airline.domain.UserRepository;
+
+import com.topgun.airline.domain.user.UserRepository;
+import com.topgun.airline.domain.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

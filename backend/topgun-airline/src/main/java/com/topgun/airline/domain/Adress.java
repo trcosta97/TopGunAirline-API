@@ -1,6 +1,7 @@
 package com.topgun.airline.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.topgun.airline.domain.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
