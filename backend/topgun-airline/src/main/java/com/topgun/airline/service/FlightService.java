@@ -1,8 +1,9 @@
 package com.topgun.airline.service;
 
-import com.topgun.airline.domain.Flight;
-import com.topgun.airline.domain.FlightRepository;
+import com.topgun.airline.domain.flight.Flight;
+import com.topgun.airline.domain.flight.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,8 +24,19 @@ public class FlightService {
         return optionalFlight.orElse(null);
     }
 
-    public List<Flight> AllFlights(){
-        return flightRepository.findAllByActiveTrue();
+    public List<Flight> findAllFlights(){
+        Sort sort = Sort.by("flightDate").descending();
+        return flightRepository.findAllByActiveTrue(sort);
+    }
+
+    public List<Flight> findAllFlightsByDestination(){
+        Sort sort = Sort.by("destination").descending();
+        return flightRepository.findAllByActiveTrue(sort);
+    }
+
+    public List<Flight> findAllFlightsByOrigin(){
+        Sort sort = Sort.by("origin").descending();
+        return flightRepository.findAllByActiveTrue(sort);
     }
 
     public Flight updateFlight(Long id, Flight inputFlight){

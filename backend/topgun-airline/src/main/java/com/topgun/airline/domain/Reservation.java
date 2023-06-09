@@ -1,13 +1,13 @@
 package com.topgun.airline.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.topgun.airline.domain.flight.Flight;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Date;
 
