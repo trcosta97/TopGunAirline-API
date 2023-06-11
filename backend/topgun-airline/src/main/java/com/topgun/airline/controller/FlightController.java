@@ -59,8 +59,7 @@ public class FlightController {
 
     @DeleteMapping("flight/{id}")
     public ResponseEntity<Flight> delete(@RequestParam Long id){
-        Flight deletedFlight = flightService.deleteFlight(id);
-        return ResponseEntity.ok(deletedFlight);
+        return ResponseEntity.ok(flightService.deleteFlight(id));
     }
 
 }

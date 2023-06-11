@@ -1,5 +1,6 @@
 package com.topgun.airline.domain;
 
+import com.topgun.airline.domain.payment.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

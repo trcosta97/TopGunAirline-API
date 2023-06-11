@@ -2,6 +2,7 @@ package com.topgun.airline.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.topgun.airline.domain.flight.Flight;
+import com.topgun.airline.domain.payment.Payment;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

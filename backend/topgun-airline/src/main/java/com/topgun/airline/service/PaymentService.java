@@ -1,6 +1,6 @@
 package com.topgun.airline.service;
 
-import com.topgun.airline.domain.Payment;
+import com.topgun.airline.domain.payment.Payment;
 import com.topgun.airline.domain.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +31,7 @@ public class PaymentService {
         Optional<Payment> optionalPayment = paymentRepository.findById(id);
         if(optionalPayment.isPresent()){
             Payment updatedPayment = optionalPayment.get();
-            updatedPayment.setPaymentType(inputPayment.getPaymentType());
+            updatedPayment.setTypeOfPayment(inputPayment.getTypeOfPayment());
             updatedPayment.setUser(inputPayment.getUser());
             updatedPayment.setReservation(inputPayment.getReservation());
             updatedPayment.setValue(inputPayment.getValue());

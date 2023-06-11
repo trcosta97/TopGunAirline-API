@@ -44,8 +44,6 @@ public class UserController {
 
     @DeleteMapping("user/{id}")
     public ResponseEntity<User> delete(@RequestParam Long id){
-        userService.deleteUser(id);
-        User deactivatedUser = userService.findUserById(id);
-        return ResponseEntity.ok(deactivatedUser);
+        return ResponseEntity.ok(userService.deleteUser(id));
     }
 }
