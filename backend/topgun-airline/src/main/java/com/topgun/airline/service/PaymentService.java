@@ -1,7 +1,7 @@
 package com.topgun.airline.service;
 
 import com.topgun.airline.domain.payment.Payment;
-import com.topgun.airline.domain.PaymentRepository;
+import com.topgun.airline.domain.payment.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

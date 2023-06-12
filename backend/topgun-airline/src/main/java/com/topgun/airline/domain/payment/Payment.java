@@ -1,8 +1,7 @@
 package com.topgun.airline.domain.payment;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.topgun.airline.domain.Reservation;
-import com.topgun.airline.domain.TypeOfPayment;
+import com.topgun.airline.domain.reservation.Reservation;
 import com.topgun.airline.domain.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,7 +11,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="tb_payment")
@@ -23,25 +22,25 @@ import java.util.Date;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "cd_payment")
+    @Column(name = "id_payment")
     private Long id;
-    @JoinColumn(name = "cd_user", nullable = false)
+    @JoinColumn(name = "id_user", nullable = false)
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
-    @Column(name = "vl_total_value")
+    @Column(name = "payment_total_value")
     private BigDecimal value;
-    @Column(name = "tp_payment_type")
+    @Column(name = "payment_payment_type")
     private TypeOfPayment typeOfPayment;
-    @Column(name = "dt_payment_date")
+    @Column(name = "payment_payment_date")
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    private Date payDate;
-    @JoinColumn(name = "cd_reservation", nullable = false)
+    private LocalDateTime payDate;
+    @JoinColumn(name = "id_reservation", nullable = false)
     @JsonBackReference
     @OneToOne(mappedBy = "payment")
     private Reservation reservation;
-    @Column(name = "bl_active", columnDefinition = "BIT(1) DEFAULT 1")
-    private Boolean active;
+    @Column(name = "payment_active", columnDefinition = "BIT(1) DEFAULT 1")
+    private Boolean active = true;
 
     public Payment(PaymentDTO data) {
         this.user = data.user();
@@ -52,5 +51,10 @@ public class Payment {
 
     public void deactivatePayment(){
         this.active = false;
+    }
+
+    @PrePersist
+    protected void prePersist() {
+        payDate = LocalDateTime.now();
     }
 }

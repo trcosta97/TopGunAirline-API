@@ -1,10 +1,8 @@
 package com.topgun.airline.controller;
 
-import com.topgun.airline.domain.Reservation;
 import com.topgun.airline.domain.payment.Payment;
 import com.topgun.airline.domain.payment.PaymentDTO;
 import com.topgun.airline.service.PaymentService;
-import jdk.javadoc.doclet.Reporter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

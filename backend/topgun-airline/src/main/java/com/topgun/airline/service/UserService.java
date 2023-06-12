@@ -29,20 +29,33 @@ public class UserService {
         return userRepository.findAllByActiveTrue();
     }
 
-    public User updateUser(Long id, User inputUser){
+    public User updateUser(Long id, User inputUser) {
         Optional<User> optionalUser = userRepository.findById(id);
-        if(optionalUser.isPresent()){
-            User updatedUser = optionalUser.get();
-            updatedUser.setReservations(inputUser.getReservations());
-            updatedUser.setName(inputUser.getName());
-            updatedUser.setPassword(inputUser.getPassword());
-            updatedUser.setAdress(inputUser.getAdress());
-            updatedUser.setEmail(inputUser.getEmail());
-            userRepository.save(inputUser);
-            return updatedUser;
+        if (optionalUser.isPresent()) {
+            User existingUser = optionalUser.get();
+
+            if (inputUser.getReservations() != null) {
+                existingUser.setReservations(inputUser.getReservations());
+            }
+            if (inputUser.getName() != null) {
+                existingUser.setName(inputUser.getName());
+            }
+            if (inputUser.getPassword() != null) {
+                existingUser.setPassword(inputUser.getPassword());
+            }
+            if (inputUser.getAdress() != null) {
+                existingUser.setAdress(inputUser.getAdress());
+            }
+            if (inputUser.getEmail() != null) {
+                existingUser.setEmail(inputUser.getEmail());
+            }
+
+            userRepository.save(existingUser);
+            return existingUser;
         }
         return null;
     }
+
 
     public User deleteUser(Long id){
         Optional<User> optionalUser = userRepository.findById(id);

@@ -2,7 +2,7 @@ package com.topgun.airline.controller;
 
 
 import com.topgun.airline.domain.user.User;
-import com.topgun.airline.domain.user.UserSaveDTO;
+import com.topgun.airline.domain.user.UserDTO;
 import com.topgun.airline.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,9 +17,9 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/user")
-    public ResponseEntity<User> save(@RequestBody UserSaveDTO data){
-        var savedUser = new User(data);
-        userService.saveUser(savedUser);
+    public ResponseEntity<User> save(@RequestBody UserDTO data){
+        var newUser = new User(data);
+        User savedUser = userService.saveUser(newUser);
         return ResponseEntity.ok(savedUser);
     }
 
@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @PutMapping("/user/{id}")
-    public ResponseEntity<User> update(@RequestBody UserSaveDTO data, @RequestParam Long id){
+    public ResponseEntity<User> update(@RequestBody UserDTO data, @RequestParam Long id){
         var user = new User(data);
         User updatedUser = userService.updateUser(id, user);
         return ResponseEntity.ok(updatedUser);

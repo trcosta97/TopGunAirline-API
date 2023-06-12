@@ -1,6 +1,6 @@
 package com.topgun.airline.service;
 
-import com.topgun.airline.domain.Adress;
+import com.topgun.airline.domain.adress.Adress;
 import com.topgun.airline.domain.AdressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

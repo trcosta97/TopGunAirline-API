@@ -1,7 +1,7 @@
 package com.topgun.airline.service;
 
-import com.topgun.airline.domain.Reservation;
-import com.topgun.airline.domain.ReservationRepository;
+import com.topgun.airline.domain.reservation.Reservation;
+import com.topgun.airline.domain.reservation.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

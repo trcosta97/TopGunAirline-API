@@ -1,16 +1,14 @@
 package com.topgun.airline.domain.user;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.topgun.airline.domain.Adress;
-import com.topgun.airline.domain.Reservation;
+import com.topgun.airline.domain.adress.Adress;
+import com.topgun.airline.domain.reservation.Reservation;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "User")
@@ -28,7 +26,7 @@ public class User {
     private String name;
     @JsonManagedReference
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cd_adress", nullable = false)
+    @JoinColumn(name = "cd_adress")
     private Adress adress;
     @Column(name="lg_email", nullable = false, unique = true)
     private String email;
@@ -38,17 +36,18 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Reservation> reservations;
     @Column(name = "bl_active", columnDefinition = "BIT(1) DEFAULT 1")
-    private Boolean active;
+    private Boolean active = true;
 
     public void deactivateUser(){
         this.active = false;
     }
 
-    public User (UserSaveDTO data){
-        this.name = data.name();
-        this.adress = data.adress();
-        this.email = data.email();
-        this.password = data.password();
+    public User(UserDTO data) {
+        this.name = (data.name() != null) ? data.name() : this.name;
+        this.adress = (data.adress() != null) ? new Adress(data.adress()) : this.adress;
+        this.email = (data.email() != null) ? data.email() : this.email;
+        this.password = (data.password() != null) ? data.password() : this.password;
     }
+
 
 }
