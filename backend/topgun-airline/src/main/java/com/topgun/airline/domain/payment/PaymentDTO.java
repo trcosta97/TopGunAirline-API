@@ -7,7 +7,7 @@ import com.topgun.airline.domain.user.User;
 
 import java.math.BigDecimal;
 
-public record PaymentDTO(User user, BigDecimal value, Reservation reservation, TypeOfPayment typeOfPayment) {
+public record PaymentDTO(Long userId, BigDecimal value, TypeOfPayment typeOfPayment) {
 }
 
 

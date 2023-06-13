@@ -31,7 +31,7 @@ public class Adress {
     @JoinColumn(name = "id_user")
     private User user;
     @Column(name = "adress_active", columnDefinition = "BIT(1) DEFAULT 1")
-    private Boolean active;
+    private Boolean active=true;
 
     public Adress (AdressDTO data){
         this.zipCode = data.zipCode();

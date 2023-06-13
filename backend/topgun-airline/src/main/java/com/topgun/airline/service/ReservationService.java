@@ -31,11 +31,22 @@ public class ReservationService {
         Optional<Reservation> optionalReservation = reservationRepository.findById(id);
         if(optionalReservation.isPresent()){
             Reservation updatedReservation = optionalReservation.get();
-            updatedReservation.setReservationDate(inputReservation.getReservationDate());
-            updatedReservation.setPayment(inputReservation.getPayment());
-            updatedReservation.setUser(inputReservation.getUser());
-            updatedReservation.setFlight(inputReservation.getFlight());
-            updatedReservation.setNumberOfSeats(inputReservation.getNumberOfSeats());
+
+            if(inputReservation.getReservationDate() != null){
+                updatedReservation.setReservationDate(inputReservation.getReservationDate());
+            }
+            if(inputReservation.getPayment() != null){
+                updatedReservation.setPayment(inputReservation.getPayment());
+            }
+            if(inputReservation.getUser() != null){
+                updatedReservation.setUser(inputReservation.getUser());
+            }
+            if(inputReservation.getFlight() != null){
+                updatedReservation.setFlight(inputReservation.getFlight());
+            }
+            if(inputReservation.getNumberOfSeats() != null) {
+                updatedReservation.setNumberOfSeats(inputReservation.getNumberOfSeats());
+            }
             reservationRepository.save(inputReservation);
             return updatedReservation;
         }

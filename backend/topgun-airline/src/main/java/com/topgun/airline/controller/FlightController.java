@@ -6,6 +6,7 @@ import com.topgun.airline.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class FlightController {
 
     @Autowired
     private FlightService flightService;
-
+    @Transactional
     @PostMapping("/flight")
     public ResponseEntity<Flight> save(@RequestBody FlightDTO data){
         var flight = new Flight(data);
@@ -48,7 +49,7 @@ public class FlightController {
     public ResponseEntity<Flight> getById(@RequestParam Long id){
         return ResponseEntity.ok(flightService.findFlightById(id));
     }
-
+    @Transactional
     @PutMapping("flight/{id}")
     public ResponseEntity<Flight> update(@RequestBody FlightDTO data, @RequestParam Long id){
         var flight = new Flight(data);
@@ -56,7 +57,7 @@ public class FlightController {
         return ResponseEntity.ok(updatedFlight);
 
     }
-
+    @Transactional
     @DeleteMapping("flight/{id}")
     public ResponseEntity<Flight> delete(@RequestParam Long id){
         return ResponseEntity.ok(flightService.deleteFlight(id));

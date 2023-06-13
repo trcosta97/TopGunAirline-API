@@ -43,9 +43,8 @@ public class Payment {
     private Boolean active = true;
 
     public Payment(PaymentDTO data) {
-        this.user = data.user();
+        this.user = new User(data.userId());
         this.typeOfPayment = data.typeOfPayment();
-        this.reservation = data.reservation();
         this.value = data.value();
     }
 

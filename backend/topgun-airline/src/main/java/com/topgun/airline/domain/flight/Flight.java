@@ -38,6 +38,10 @@ public class Flight {
     @Column(name = "flight_active", columnDefinition = "BIT(1) DEFAULT 1")
     private Boolean active = true;
 
+    public Flight(Long flightId) {
+        this.id = flightId;
+    }
+
     public void deactivateFlight(){
         this.active = false;
     }

@@ -32,11 +32,14 @@ public class User {
     private String email;
     @Column(name="ps_password")
     private String password;
-    @JoinColumn(name = "ls_reservations")
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Reservation> reservations;
     @Column(name = "bl_active", columnDefinition = "BIT(1) DEFAULT 1")
     private Boolean active = true;
+
+    public User(Long userId) {
+        this.id = userId;
+    }
 
     public void deactivateUser(){
         this.active = false;

@@ -6,6 +6,7 @@ import com.topgun.airline.domain.user.UserDTO;
 import com.topgun.airline.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
+    @Transactional
     @PostMapping("/user")
     public ResponseEntity<User> save(@RequestBody UserDTO data){
         var newUser = new User(data);
@@ -34,7 +35,7 @@ public class UserController {
         List<User> allUsers = userService.findAllUsers();
         return ResponseEntity.ok(allUsers);
     }
-
+    @Transactional
     @PutMapping("/user/{id}")
     public ResponseEntity<User> update(@RequestBody UserDTO data, @RequestParam Long id){
         var user = new User(data);

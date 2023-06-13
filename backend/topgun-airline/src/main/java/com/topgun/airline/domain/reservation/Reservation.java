@@ -12,9 +12,9 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Entity
 @Table(name = "tb_reservation")
@@ -33,7 +33,7 @@ public class Reservation {
     @JoinColumn(name = "id_flight")
     @OneToOne
     private Flight flight;
-    @Column(name = "reservation_available_seats", nullable = true, precision = 4)
+    @Column(name = "reservation_available_seats", nullable = false, precision = 4)
     private Integer numberOfSeats;
     @JoinColumn(name = "id_payment", nullable = false)
     @JsonManagedReference
@@ -47,15 +47,18 @@ public class Reservation {
     private Boolean active = true;
 
     public Reservation(ReservationDTO data) {
-        this.user = data.user();
-        this.flight = data.flight();
+        this.user = new User(data.userId());
+        this.flight = new Flight(data.flightId());
         this.numberOfSeats = data.numberOfSeats();
-        this.payment = data.payment();
+        this.payment = new Payment(data.payment());
     }
 
     public Reservation(ReservationUpdateDTO data){
         this.numberOfSeats = data.numberOfSeats();
-        this.payment = data.payment();
+    }
+
+    public Reservation(Long reservationId) {
+        this.id = reservationId;
     }
 
     public void deactivateReservation(){
