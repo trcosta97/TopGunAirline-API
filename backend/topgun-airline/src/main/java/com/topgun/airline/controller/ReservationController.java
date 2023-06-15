@@ -38,6 +38,7 @@ public class ReservationController {
         Reservation reservation = new Reservation(data);
         reservation.setUser(user);
         reservation.setFlight(flight);
+        reservation.getPayment().setUser(user);
 
         Reservation savedReservation = reservationService.saveReservation(reservation);
 

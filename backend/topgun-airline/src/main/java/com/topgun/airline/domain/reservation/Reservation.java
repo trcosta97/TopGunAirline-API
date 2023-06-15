@@ -5,10 +5,7 @@ import com.topgun.airline.domain.flight.Flight;
 import com.topgun.airline.domain.payment.Payment;
 import com.topgun.airline.domain.user.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 
@@ -22,13 +19,14 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id_reservation")
     private Long id;
     @JoinColumn(name = "id_user")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private User user;
     @JoinColumn(name = "id_flight")
     @OneToOne

@@ -1,13 +1,11 @@
 package com.topgun.airline.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.topgun.airline.domain.adress.Adress;
 import com.topgun.airline.domain.reservation.Reservation;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -17,6 +15,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(of = "id")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,6 +32,7 @@ public class User {
     @Column(name="ps_password")
     private String password;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @JsonIgnore
     private List<Reservation> reservations;
     @Column(name = "bl_active", columnDefinition = "BIT(1) DEFAULT 1")
     private Boolean active = true;
@@ -51,6 +51,4 @@ public class User {
         this.email = (data.email() != null) ? data.email() : this.email;
         this.password = (data.password() != null) ? data.password() : this.password;
     }
-
-
 }

@@ -1,6 +1,7 @@
 package com.topgun.airline.domain.payment;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.topgun.airline.domain.reservation.Reservation;
 import com.topgun.airline.domain.user.User;
 import jakarta.persistence.*;
@@ -26,6 +27,7 @@ public class Payment {
     private Long id;
     @JoinColumn(name = "id_user", nullable = false)
     @ManyToOne(cascade = CascadeType.ALL)
+
     private User user;
     @Column(name = "payment_total_value")
     private BigDecimal value;
