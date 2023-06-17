@@ -27,13 +27,12 @@ public class Payment {
     private Long id;
     @JoinColumn(name = "id_user", nullable = false)
     @ManyToOne(cascade = CascadeType.ALL)
-
     private User user;
-    @Column(name = "payment_total_value")
+    @Column(name = "total_value_payment")
     private BigDecimal value;
-    @Column(name = "payment_payment_type")
+    @Column(name = "type_payment")
     private TypeOfPayment typeOfPayment;
-    @Column(name = "payment_payment_date")
+    @Column(name = "date_payment")
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime payDate;
@@ -48,10 +47,6 @@ public class Payment {
         this.user = new User(data.userId());
         this.typeOfPayment = data.typeOfPayment();
         this.value = data.value();
-    }
-
-    public void deactivatePayment(){
-        this.active = false;
     }
 
     @PrePersist

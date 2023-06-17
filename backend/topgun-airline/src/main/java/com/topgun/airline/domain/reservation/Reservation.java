@@ -19,7 +19,6 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "id")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,17 +30,17 @@ public class Reservation {
     @JoinColumn(name = "id_flight")
     @OneToOne
     private Flight flight;
-    @Column(name = "reservation_available_seats", nullable = false, precision = 4)
+    @Column(name = "available_seats_reservation", nullable = false, precision = 4)
     private Integer numberOfSeats;
     @JoinColumn(name = "id_payment", nullable = false)
     @JsonManagedReference
     @OneToOne(cascade = CascadeType.ALL)
     private Payment payment;
-    @Column(name="reservation_date")
+    @Column(name="date_reservation")
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime reservationDate;
-    @Column(name = "reservation_active", columnDefinition = "BIT(1) DEFAULT 1")
+    @Column(name = "active_reservation", columnDefinition = "BIT(1) DEFAULT 1")
     private Boolean active = true;
 
     public Reservation(ReservationDTO data) {
@@ -57,10 +56,6 @@ public class Reservation {
 
     public Reservation(Long reservationId) {
         this.id = reservationId;
-    }
-
-    public void deactivateReservation(){
-        this.active = false;
     }
 
     @PrePersist

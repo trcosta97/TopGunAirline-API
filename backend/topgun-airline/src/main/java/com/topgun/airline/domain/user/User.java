@@ -2,7 +2,7 @@ package com.topgun.airline.domain.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.topgun.airline.domain.adress.Adress;
+import com.topgun.airline.domain.adress.Address;
 import com.topgun.airline.domain.reservation.Reservation;
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,15 +19,15 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "cd_user")
+    @Column(name = "id_user")
     private Long id;
-    @Column(name = "nm_user", nullable = false, length = 70)
+    @Column(name = "name_user", nullable = false, length = 70)
     private String name;
     @JsonManagedReference
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cd_adress")
-    private Adress adress;
-    @Column(name="lg_email", nullable = false, unique = true)
+    @JoinColumn(name = "id_address")
+    private Address address;
+    @Column(name="email_email", nullable = false, unique = true)
     private String email;
     @Column(name="ps_password")
     private String password;
@@ -41,13 +41,9 @@ public class User {
         this.id = userId;
     }
 
-    public void deactivateUser(){
-        this.active = false;
-    }
-
     public User(UserDTO data) {
         this.name = (data.name() != null) ? data.name() : this.name;
-        this.adress = (data.adress() != null) ? new Adress(data.adress()) : this.adress;
+        this.address = (data.adress() != null) ? new Address(data.adress()) : this.address;
         this.email = (data.email() != null) ? data.email() : this.email;
         this.password = (data.password() != null) ? data.password() : this.password;
     }

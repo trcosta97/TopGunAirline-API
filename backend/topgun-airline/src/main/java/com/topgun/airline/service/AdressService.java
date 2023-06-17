@@ -1,6 +1,6 @@
 package com.topgun.airline.service;
 
-import com.topgun.airline.domain.adress.Adress;
+import com.topgun.airline.domain.adress.Address;
 import com.topgun.airline.domain.AdressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,39 +14,48 @@ public class AdressService {
     @Autowired
     private AdressRepository adressRepository;
 
-    public Adress saveAdress(Adress newAdress){
-        return adressRepository.save(newAdress);
+    public Address saveAdress(Address newAddress){
+        return adressRepository.save(newAddress);
     }
 
-    public Adress getAdressById(Long id){
-        Optional<Adress> optionalAdress = adressRepository.findById(id);
+    public Address getAdressById(Long id){
+        Optional<Address> optionalAdress = adressRepository.findById(id);
         return optionalAdress.orElse(null);
     }
 
-    public List<Adress> allAdresses(){
+    public List<Address> allAdresses(){
         return adressRepository.findAllByActiveTrue();
     }
 
-    public Adress updateAdress(Long id, Adress inputAdress){
-        Optional<Adress> optionalAdress = adressRepository.findById(id);
-        if(optionalAdress.isPresent()){
-            Adress updatedAdress = optionalAdress.get();
-            updatedAdress.setCountry(inputAdress.getCountry());
-            updatedAdress.setUser(inputAdress.getUser());
-            updatedAdress.setNumber(inputAdress.getNumber());
-            updatedAdress.setZipCode(inputAdress.getZipCode());
-            adressRepository.save(inputAdress);
-            return updatedAdress;
+    public Address updateAdress(Long id, Address inputAddress){
+        Optional<Address> optionalAddress = adressRepository.findById(id);
+        if(optionalAddress.isPresent()){
+            Address updatedAddress = optionalAddress.get();
+            if(inputAddress.getCountry() != null){
+                updatedAddress.setCountry(inputAddress.getCountry());
+            }
+            if(inputAddress.getUser() != null){
+                updatedAddress.setUser(inputAddress.getUser());
+            }
+            if(inputAddress.getNumber() != null){
+                updatedAddress.setNumber(inputAddress.getNumber());
+            }
+            if(inputAddress.getZipCode() != null){
+                updatedAddress.setZipCode(inputAddress.getZipCode());
+            }
+
+            adressRepository.save(updatedAddress);
+            return updatedAddress;
         }
         return null;
     }
 
-    public Adress deleteAdress(Long id){
-        Optional<Adress> optionalAdress = adressRepository.findById(id);
-        if(optionalAdress.isPresent()){
-            Adress adress = optionalAdress.get();
-            adress.deactivateAdress();
-            return adressRepository.save(adress);
+    public Address deleteAdress(Long id){
+        Optional<Address> optionalAddress = adressRepository.findById(id);
+        if(optionalAddress.isPresent()){
+            Address address = optionalAddress.get();
+            address.setActive(false);
+            return adressRepository.save(address);
         }
         return null;
     }

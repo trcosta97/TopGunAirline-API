@@ -15,32 +15,28 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Adress {
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_adress")
+    @Column(name = "id_address")
     private Long id;
-    @Column(name = "adress_zip_code", nullable = false)
+    @Column(name = "zip_code_address", nullable = false)
     private String zipCode;
-    @Column(name = "adress_number", nullable = false)
+    @Column(name = "number_address", nullable = false)
     private String number;
-    @Column(name = "adress_country", nullable = false)
+    @Column(name = "country_address", nullable = false)
     private String country;
     @JsonBackReference
-    @OneToOne(mappedBy = "adress")
+    @OneToOne(mappedBy = "address")
     @JoinColumn(name = "id_user")
     private User user;
-    @Column(name = "adress_active", columnDefinition = "BIT(1) DEFAULT 1")
+    @Column(name = "active_address", columnDefinition = "BIT(1) DEFAULT 1")
     private Boolean active=true;
 
-    public Adress (AdressDTO data){
+    public Address(AddressDTO data){
         this.zipCode = data.zipCode();
         this.number = data.number();
         this.country = data.country();
-    }
-
-    public void deactivateAdress() {
-        this.active = false;
     }
 
 }

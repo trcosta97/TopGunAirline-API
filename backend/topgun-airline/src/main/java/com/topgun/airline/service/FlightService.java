@@ -43,11 +43,21 @@ public class FlightService {
         Optional<Flight> optionalFlight = flightRepository.findById(id);
         if(optionalFlight.isPresent()){
             Flight updatedFlight = optionalFlight.get();
-            updatedFlight.setFlightDate(inputFlight.getFlightDate());
-            updatedFlight.setOrigin(inputFlight.getOrigin());
-            updatedFlight.setDestination(inputFlight.getDestination());
-            updatedFlight.setAvailableSeats(inputFlight.getAvailableSeats());
-            flightRepository.save(inputFlight);
+
+            if(inputFlight.getFlightDate() != null){
+                updatedFlight.setFlightDate(inputFlight.getFlightDate());
+            }
+            if(inputFlight.getOrigin() !=null){
+                updatedFlight.setOrigin(inputFlight.getOrigin());
+            }
+            if(inputFlight.getDestination() != null){
+                updatedFlight.setDestination(inputFlight.getDestination());
+            }
+            if(inputFlight.getAvailableSeats() != null){
+                updatedFlight.setAvailableSeats(inputFlight.getAvailableSeats());
+            }
+
+            flightRepository.save(updatedFlight);
             return updatedFlight;
         }
         return null;
@@ -57,7 +67,7 @@ public class FlightService {
         Optional<Flight> optionalFlight = flightRepository.findById(id);
         if(optionalFlight.isPresent()){
             Flight flight = optionalFlight.get();
-            flight.deactivateFlight();
+            flight.setActive(false);
             return flightRepository.save(flight);
         }
         return null;

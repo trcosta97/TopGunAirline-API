@@ -43,8 +43,8 @@ public class UserService {
             if (inputUser.getPassword() != null) {
                 existingUser.setPassword(inputUser.getPassword());
             }
-            if (inputUser.getAdress() != null) {
-                existingUser.setAdress(inputUser.getAdress());
+            if (inputUser.getAddress() != null) {
+                existingUser.setAddress(inputUser.getAddress());
             }
             if (inputUser.getEmail() != null) {
                 existingUser.setEmail(inputUser.getEmail());
@@ -61,6 +61,7 @@ public class UserService {
         Optional<User> optionalUser = userRepository.findById(id);
         if (optionalUser.isPresent()){
             User user = optionalUser.get();
+            user.setActive(false);
             userRepository.save(user);
             return user;
         }

@@ -46,7 +46,7 @@ public class PaymentService {
         Optional<Payment> optionalPayment = paymentRepository.findById(id);
         if(optionalPayment.isPresent()){
             Payment payment = optionalPayment.get();
-            payment.deactivatePayment();
+            payment.setActive(false);
             return paymentRepository.save(payment);
         }
         return null;

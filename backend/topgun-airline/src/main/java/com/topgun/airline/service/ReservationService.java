@@ -57,7 +57,7 @@ public class ReservationService {
         Optional<Reservation> optionalReservation = reservationRepository.findById(id);
         if(optionalReservation.isPresent()){
             Reservation reservation = optionalReservation.get();
-            reservation.deactivateReservation();
+            reservation.setActive(false);
             reservationRepository.save(reservation);
         }
         return null;

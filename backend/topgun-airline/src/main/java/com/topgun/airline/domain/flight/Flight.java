@@ -25,25 +25,21 @@ public class Flight {
     @Column(name = "id_flight")
     private Long id;
     @Temporal(TemporalType.DATE)
-    @Column(name = "dt_flight_date", nullable = false)
+    @Column(name = "date_flight_date", nullable = false)
     private LocalDate flightDate;
-    @Column(name = "flight_origin", nullable = false)
+    @Column(name = "origin_flight", nullable = false)
     @Enumerated(EnumType.STRING)
     private Airport origin;
-    @Column(name = "flight_destination", nullable = false)
+    @Column(name = "destination_flight", nullable = false)
     @Enumerated(EnumType.STRING)
     private Airport destination;
-    @Column(name = "flight_available_seats")
+    @Column(name = "available_seats_flight")
     private Integer availableSeats;
-    @Column(name = "flight_active", columnDefinition = "BIT(1) DEFAULT 1")
+    @Column(name = "active_flight", columnDefinition = "BIT(1) DEFAULT 1")
     private Boolean active = true;
 
     public Flight(Long flightId) {
         this.id = flightId;
-    }
-
-    public void deactivateFlight(){
-        this.active = false;
     }
 
     public  Flight(FlightDTO data){
