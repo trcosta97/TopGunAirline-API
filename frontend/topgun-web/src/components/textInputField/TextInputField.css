@@ -1,0 +1,23 @@
+.textInputField{
+    margin: 15px 0;
+}
+
+
+.textInputField label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.textInputField input{
+    background-color: rgb(202, 203, 204);
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    border: none;
+    font-size: 24px;
+    padding: 24px;
+    box-sizing: border-box;
+    border-radius: 10px;
+   
+}
