@@ -3,7 +3,7 @@ import TextInputField from "../components/textInputField";
 import axios from "axios";
 
 
-function Register() {
+function UserRegister() {
   const [userName, setUserName] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [number, setNumber] = useState("");
@@ -44,7 +44,7 @@ function Register() {
 
   return (
     <section>
-      <h2>User registration</h2>
+      <h2>USER REGISTRATION</h2>
       <form onSubmit={onSave}>
         <TextInputField
           value={userName}
@@ -94,4 +94,4 @@ function Register() {
   );
 }
 
-export default Register
+export default UserRegister

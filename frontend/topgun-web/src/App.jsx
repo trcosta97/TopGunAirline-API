@@ -1,5 +1,6 @@
 import './App.css'
 import { Outlet } from 'react-router-dom'
+import homeLogo from './assets/img/home-logo.png'
 
 
 function App() {
@@ -8,8 +9,8 @@ function App() {
   return (
 
     <div>
-        <header>
-          <h1>TopGun Airline</h1>
+        <header className='homeHeader'>
+          <img className='homeLogo' src={homeLogo} alt="logo"/>
         </header>
         <Outlet/>
         <footer></footer>
