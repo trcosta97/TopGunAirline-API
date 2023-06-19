@@ -50,7 +50,7 @@ public class ReservationController {
         return ResponseEntity.ok(reservationService.findReservationById(id));
     }
 
-    @GetMapping("/reservation")
+    @GetMapping("/reservation/all")
     public ResponseEntity<List<Reservation>> getAll(){
         return ResponseEntity.ok(reservationService.findAllReservation());
     }
