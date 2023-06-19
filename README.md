@@ -53,14 +53,14 @@ The {id} is a requested param that defines the user to be updated and isn't incl
 }
 ```
 
-GET /user/{id}
-Returns the user with the provided id.
+GET /user/{id}  
+Returns the user with the provided id.  
 
-GET /user/all
-Returns all the active users.
+GET /user/all  
+Returns all the active users.  
 
-DELETE /user/{id}
-Deactivate the user but maintains it on the database.
+DELETE /user/{id}  
+Deactivate the user but maintains it on the database.  
 
 ## Flight
 
@@ -84,20 +84,20 @@ PUT /flight/{id}
 }
 ```
 
-GET /flight/{id}
-Returns the flight with the provided id.
+GET /flight/{id}  
+Returns the flight with the provided id.  
 
-GET /flight/all
-Returns all the active flights.
+GET /flight/all  
+Returns all the active flights.  
 
-GET /flight/origin
-Returns all the active flights by origin.
+GET /flight/origin  
+Returns all the active flights by origin.  
+ 
+GET /flight/destination  
+Returns all the active flights by destination.  
 
-GET /flight/destination
-Returns all the active flights by destination.
-
-DELETE /flight/{id}
-Deactivate the flight but maintains it on the database.
+DELETE /flight/{id}  
+Deactivate the flight but maintains it on the database.  
 
 ## Reservation
 
@@ -122,14 +122,14 @@ PUT /reservation/{id}
 }
 ```
 
-GET /reservation/{id} 
-Returns the reservation with the provided id.
+GET /reservation/{id}   
+Returns the reservation with the provided id.  
 
-GET /reservation/all
-Returns all the active reservations.
+GET /reservation/all  
+Returns all the active reservations.  
 
-DELETE /reservation/{id}
-Deactivate the reservation but maintains it on the database.
+DELETE /reservation/{id}  
+Deactivate the reservation but maintains it on the database.  
 
 ## Payment 
 
@@ -143,11 +143,11 @@ PUT payment/{id}
 }
 ```
 
-GET /payment/{id} 
-Returns the payment with the provided id.
+GET /payment/{id}    
+Returns the payment with the provided id.  
 
-GET /payment/all
-Returns all the active payments.
+GET /payment/all  
+Returns all the active payments.  
 
-DELETE /payment/{id}
-Deactivate the payment but maintains it on the database.
+DELETE /payment/{id}  
+Deactivate the payment but maintains it on the database.  
