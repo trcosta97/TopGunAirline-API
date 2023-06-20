@@ -1,0 +1,14 @@
+.linkButton{
+    background-color:rgba(53, 65, 50, 0.726);
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 2%;
+    border: none;
+    cursor: pointer;
+    color: rgb(247,230,196);
+    margin: 20px 15px;
+
+   
+
+}
