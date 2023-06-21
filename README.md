@@ -12,7 +12,8 @@ First you need to start the API. Open it with your favorite IDE (I used JetBrain
 ```
 
 After that start the main file:
-![TopgunAirlineApplication](https://freeimage.host/i/HPdYWFe)
+
+![Captura de tela 2023-06-19 172240](https://github.com/trcosta97/top-gun-airline/assets/101136329/5c090727-0b94-4fb2-a691-66fe9dd7ea25)
 
 Now that the API is running, we have to initiate the front end application.  
 Again: open the project in your favorite IDE and run the start command:
