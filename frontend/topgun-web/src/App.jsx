@@ -13,16 +13,18 @@ function App() {
         <header className='homeHeader'>
           <img className='homeLogo' src={homeLogo} alt="logo"/>
           <div className='buttons'>
-          <LinkButton url="/userRegister">
-            User Registration
-          </LinkButton>
-          <LinkButton url="/flightRegister">
-            Flight Registration
-          </LinkButton>
-          <LinkButton url="/reservationRegister">
-            Reservation Registration
-          </LinkButton>
-
+            <LinkButton url="/userRegister">
+              User Registration
+            </LinkButton>
+            <LinkButton url="/flightRegister">
+              Flight Registration
+            </LinkButton>
+            <LinkButton url="/reservationRegister">
+              Reservation Registration
+            </LinkButton>
+            <LinkButton url="/usersList">
+              Users
+            </LinkButton>
           </div>
           
         </header>

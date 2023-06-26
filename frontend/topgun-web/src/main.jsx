@@ -8,6 +8,7 @@ import UserRegister from './routes/UserRegister.jsx'
 import ErrorPage from './routes/ErrorPage.jsx'
 import ReservationRegister from './routes/ReservationRegister.jsx'
 import FlightRegister from './routes/FlightRegister.jsx'
+import AllUsers from './routes/AllUsers.jsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path:"/flightRegister",
         element:<FlightRegister/>
+      },
+      {
+        path:"/usersList",
+        element:<AllUsers/>
       }
     ]
   }
