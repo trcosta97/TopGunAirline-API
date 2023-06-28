@@ -8,7 +8,7 @@ import UserRegister from './routes/UserRegister.jsx'
 import ErrorPage from './routes/ErrorPage.jsx'
 import ReservationRegister from './routes/ReservationRegister.jsx'
 import FlightRegister from './routes/FlightRegister.jsx'
-import AllUsers from './routes/AllUsers.jsx'
+import Lists from './routes/Lists.jsx'
 
 const router = createBrowserRouter([
   {
@@ -33,8 +33,8 @@ const router = createBrowserRouter([
         element:<FlightRegister/>
       },
       {
-        path:"/usersList",
-        element:<AllUsers/>
+        path:"/lists",
+        element:<Lists/>
       }
     ]
   }
