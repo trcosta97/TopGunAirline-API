@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import AllFlights from "../components/AllFlights/AllFlights";
-import AllUsers from "../components/AllUsers/AllUsers";
-import AllReservations from "../components/AllReservations/AllReservations";
+import AllFlights from "../components/AllFlights";
+import AllUsers from "../components/AllUsers";
+import AllReservations from "../components/AllReservations";
 
 function Lists() {
   const [selectedOption, setSelectedOption] = useState("");

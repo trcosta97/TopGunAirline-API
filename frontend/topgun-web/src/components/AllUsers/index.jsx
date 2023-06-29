@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 import "./AllUsers.css"
 
+
+
 function AllUsers(){
     
     const [users, setUsers] = useState([])
@@ -27,9 +29,13 @@ function AllUsers(){
           <ul className="users">
             {users.map((user, index) => (
               <li key={index} className="user">
-                <p>Name: {user.name}</p>
-                <p>Email: {user.email}</p>
-                <p>Address: {user.address.number}, {user.address.zipCode} - {user.address.country} </p>
+                <p className="name">{user.name}</p>
+                <div className="email_address">
+                  <p>Email: {user.email} || </p>
+                  <p>Address: {user.address.zipCode}, Number {user.address.number} - {user.address.country} </p>
+
+                </div>
+                
               </li>
             ))}
           </ul>
