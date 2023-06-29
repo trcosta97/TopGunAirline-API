@@ -39,6 +39,7 @@ public class FlightService {
         return flightRepository.findAllByActiveTrue(sort);
     }
 
+
     public Flight updateFlight(Long id, Flight inputFlight){
         Optional<Flight> optionalFlight = flightRepository.findById(id);
         if(optionalFlight.isPresent()){

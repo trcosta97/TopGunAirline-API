@@ -29,7 +29,7 @@ function AllFlights() {
 
     return (
         <div>
-            <h1>Registered Flights</h1>
+            <h1>REGISTERED FLIGHTS</h1>
             <select value={selectedOption} onChange={handleOptionChange}>
                 <option value="origin">Origin</option>
                 <option value="destination">Destination</option>

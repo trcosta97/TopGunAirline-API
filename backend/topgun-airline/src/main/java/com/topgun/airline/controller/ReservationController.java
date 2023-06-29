@@ -50,10 +50,17 @@ public class ReservationController {
         return ResponseEntity.ok(reservationService.findReservationById(id));
     }
 
-    @GetMapping("/reservation/all")
-    public ResponseEntity<List<Reservation>> getAll(){
-        return ResponseEntity.ok(reservationService.findAllReservation());
+    @GetMapping("/reservation/user")
+    public ResponseEntity<List<Reservation>> getAllByUser(){
+        return ResponseEntity.ok(reservationService.findAllReservationByUser());
     }
+
+    @GetMapping("/reservation/flight")
+    public ResponseEntity<List<Reservation>> getAllByFlight(){
+        return ResponseEntity.ok(reservationService.findAllReservationByFlight());
+    }
+
+
 
     @Transactional
     @PutMapping("/reservation/{id}")

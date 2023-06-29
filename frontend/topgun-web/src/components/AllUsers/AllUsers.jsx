@@ -23,7 +23,7 @@ function AllUsers(){
 
       return (
         <div>
-          <h1>Registered Users</h1>
+          <h1>REGISTERED USERS</h1>
           <ul className="users">
             {users.map((user, index) => (
               <li key={index} className="user">

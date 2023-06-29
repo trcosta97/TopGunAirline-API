@@ -1,4 +1,4 @@
-.flight{
+.reservation{
     background-color: rgb(247,230,196);
     color:rgba(53, 65, 50, 0.726);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -11,14 +11,10 @@
 
 }
 
-.flights{
+.reservations{
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
 
-}
-
-select{
-    padding: 15px;
 }
