@@ -1,5 +1,6 @@
 package com.topgun.airline.service;
 
+import com.topgun.airline.domain.Airport;
 import com.topgun.airline.domain.flight.Flight;
 import com.topgun.airline.domain.flight.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class FlightService {
         Optional<Flight> optionalFlight = flightRepository.findById(id);
         return optionalFlight.orElse(null);
     }
+
 
     public List<Flight> findAllFlights(){
         Sort sort = Sort.by("flightDate").descending();

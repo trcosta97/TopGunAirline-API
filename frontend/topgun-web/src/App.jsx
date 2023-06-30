@@ -22,8 +22,11 @@ function App() {
             <LinkButton url="/reservationRegister">
               Reservation Registration
             </LinkButton>
-            <LinkButton url="/Lists">
+            <LinkButton url="/lists">
               Database
+            </LinkButton>
+            <LinkButton url="/search">
+              Search
             </LinkButton>
           </div>
           

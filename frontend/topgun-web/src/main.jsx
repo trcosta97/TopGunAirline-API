@@ -9,6 +9,9 @@ import ErrorPage from './routes/ErrorPage.jsx'
 import ReservationRegister from './routes/ReservationRegister.jsx'
 import FlightRegister from './routes/FlightRegister.jsx'
 import Lists from './routes/Lists.jsx'
+import SearchItem from './routes/SearchItem.jsx'
+
+
 
 const router = createBrowserRouter([
   {
@@ -35,6 +38,10 @@ const router = createBrowserRouter([
       {
         path:"/lists",
         element:<Lists/>
+      },
+      {
+        path:"/search",
+        element: <SearchItem/>
       }
     ]
   }
