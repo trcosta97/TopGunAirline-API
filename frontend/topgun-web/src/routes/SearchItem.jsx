@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SearchUser from "../components/SearchUser"
+import SearchFlight from "../components/SearchFlight";
 
 function SearchItem(){
     
@@ -21,6 +22,7 @@ function SearchItem(){
             </select>
 
             {selectedOption === "user" && <SearchUser/>}
+            {selectedOption == "flight" && <SearchFlight/>}
         </div>
     )
 }

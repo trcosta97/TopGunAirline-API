@@ -12,7 +12,7 @@
 
 .textInputField input{
     background-color: rgb(247,230,196);
-    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+
     width: 50%;
     border: none;
     font-size: 24px;

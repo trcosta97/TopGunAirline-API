@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import './SearchUser.css';
 
@@ -25,7 +25,7 @@ function SearchUser() {
 
 
     return (
-        <div>
+        <div className="mainSearchUser">
             <h2>FIND USER</h2>
             <input type="text" value={email} onChange={handleUserEmailChange} placeholder="Enter user email" />
             <button onClick={getUserByEmail}>Search</button>
@@ -33,13 +33,18 @@ function SearchUser() {
                 <div className="searchUser">
                     <div className="userByEmail">
                         <h3>USER DETAILS</h3>
-                        <p>ID: {user.id}</p>
-                        <p>NAME: {user.name}</p>
-                        <p>EMAIL: {user.email}</p>
+                        <div className="userOutputSection">
+                            <p>NAME: <br />{user.name}</p>
+                            
+                            <p> EMAIL: <br /> {user.email}</p>
+                        </div>
                         <h3>ADDRESS INFORMATION</h3>
-                        <p>NUMBER: {user.address.number}</p>
-                        <p>ZIP CODE: {user.address.zipCode}</p>
-                        <p>COUNTRY: {user.address.country}</p>
+                        <div className="userOutputSection">
+                            <p>NUMBER: <br /> {user.address.number}</p>
+                            <p>ZIP CODE: <br /> {user.address.zipCode}</p>
+                            <p>COUNTRY: <br /> {user.address.country}</p>
+                        </div>
+                        
                     </div>
                 </div>
 
