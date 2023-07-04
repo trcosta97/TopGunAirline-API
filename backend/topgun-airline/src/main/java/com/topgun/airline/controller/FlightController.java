@@ -1,10 +1,9 @@
 package com.topgun.airline.controller;
 
-import com.topgun.airline.domain.Airport;
+
 import com.topgun.airline.domain.flight.Flight;
 import com.topgun.airline.domain.flight.FlightDTO;
 import com.topgun.airline.service.FlightService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;

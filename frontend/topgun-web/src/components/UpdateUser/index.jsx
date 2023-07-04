@@ -3,8 +3,8 @@ import axios from "axios";
 import TextInputField from "../textInputField";
 
 
-function UserUpdate() {
-    const [userId, setUserId] = useState("")
+function UpdateUser() {
+    const [userId, setUserId] = useState("");
     const [userName, setUserName] = useState("");
     const [zipCode, setZipCode] = useState("");
     const [number, setNumber] = useState("");
@@ -41,7 +41,8 @@ function UserUpdate() {
         if (password) {
             data.password = password;
         }
-        axios.put(`http://localhost:8080/user/{id}?id=${userId}`, data)
+        axios
+            .put(`http://localhost:8080/user/{id}?id=${userId}`, data)
             .then(response => {
                 console.log(response.data);
                 alert("User updated!");
@@ -116,4 +117,4 @@ function UserUpdate() {
 
 
 };
-export default UserUpdate;
+export default UpdateUser;
