@@ -11,6 +11,7 @@
     padding: 24px;
     box-sizing: border-box;
     color: rgb(124, 124, 124);
+    border-radius: 10px;
 }
 
 .dropdown label{

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import TextInputField from "../components/textInputField";
-import Dropdown from "../components/textInputField/dropdown";
+import TextInputField from "../textInputField";
+import Dropdown from "../dropdown";
 import axios from "axios";
 
-function ReservationRegister(){
+function RegisterReservation(){
     const [flightId, setFlightId] = useState("");
-    const [userId, setUserId] = ("");
+    const [userId, setUserId] = useState("");
     const [numberOfSeats, setNumberOfSeats] = useState("");
     const [value, setValue] = useState("");
     const [paymentType, setPaymentType] = useState("");
@@ -82,7 +82,7 @@ function ReservationRegister(){
               necessary={true}
               label="Payment Type"
               onChange={event => setPaymentType(event.target.value)}
-              itens={paymentTypes}
+              items={paymentTypes}
             />
         
             <button type="submit">Send</button>
@@ -91,4 +91,4 @@ function ReservationRegister(){
       );
     }
 
-    export default ReservationRegister;
+    export default RegisterReservation;

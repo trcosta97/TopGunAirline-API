@@ -1,9 +1,9 @@
 import { useState } from "react";
-import TextInputField from "../components/textInputField";
+import TextInputField from "../textInputField";
 import axios from "axios";
 
 
-function UserRegister() {
+function RegisterUser() {
   const [userName, setUserName] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [number, setNumber] = useState("");
@@ -94,4 +94,4 @@ function UserRegister() {
   );
 }
 
-export default UserRegister
+export default RegisterUser

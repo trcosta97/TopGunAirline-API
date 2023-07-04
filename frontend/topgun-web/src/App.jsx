@@ -13,20 +13,17 @@ function App() {
         <header className='homeHeader'>
           <img className='homeLogo' src={homeLogo} alt="logo"/>
           <div className='buttons'>
-            <LinkButton url="/userRegister">
-              User Registration
-            </LinkButton>
-            <LinkButton url="/flightRegister">
-              Flight Registration
-            </LinkButton>
-            <LinkButton url="/reservationRegister">
-              Reservation Registration
+            <LinkButton url="/registration">
+              Registration
             </LinkButton>
             <LinkButton url="/lists">
               Database
             </LinkButton>
             <LinkButton url="/search">
               Search
+            </LinkButton>
+            <LinkButton url='/update'>
+              Update
             </LinkButton>
           </div>
           

@@ -13,6 +13,7 @@ function AllUsers(){
           .get("http://localhost:8080/user/all")
           .then((res) => {
             const modifiedData = res.data.map((user) => ({
+              id: user.id,
               name: user.name,
               address: user.address,
               email: user.email
@@ -31,6 +32,7 @@ function AllUsers(){
               <li key={index} className="user">
                 <p className="name">{user.name}</p>
                 <div className="email_address">
+                  <p>ID: {user.id} <br /></p>
                   <p>Email: {user.email} || </p>
                   <p>Address: {user.address.zipCode}, Number {user.address.number} - {user.address.country} </p>
 

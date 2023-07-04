@@ -17,6 +17,8 @@ function AllReservations(){
             .get(url)
             .then((res) => {
                 const modifiedData = res.data.map((reservation) => ({
+                    id: reservation.id,
+                    reservationDate: reservation.reservationDate,
                     user: reservation.user.name,
                     email: reservation.user.email,
                     flightOrigin: reservation.flight.origin,
@@ -43,6 +45,7 @@ function AllReservations(){
             <ul className="reservations">
                 {reservations.map((reservation, index) => (
                     <li key={index} className="reservation">
+                        <p>ID: {reservation.id}</p>
                         <p>Date: {reservation.reservationDate}</p>
                         <p>USER INFORMATION</p>
                         <p>Name: {reservation.user}</p>
