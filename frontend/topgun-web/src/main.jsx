@@ -9,6 +9,7 @@ import Lists from './routes/Lists.jsx'
 import SearchItem from './routes/SearchItem.jsx'
 import RegisterItem from './routes/RegisterItem.jsx'
 import UpdateItem from './routes/UpdateItem.jsx'
+import DeleteItem from './routes/DeleteItem.jsx'
 
 
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path:"/update",
         element: <UpdateItem/>
+      },
+      {
+        path:"/delete",
+        element: <DeleteItem/>
       }
     ]
   }

@@ -14,16 +14,19 @@ function App() {
           <img className='homeLogo' src={homeLogo} alt="logo"/>
           <div className='buttons'>
             <LinkButton url="/registration">
-              Registration
-            </LinkButton>
-            <LinkButton url="/lists">
-              Database
+              Register
             </LinkButton>
             <LinkButton url="/search">
               Search
             </LinkButton>
             <LinkButton url='/update'>
               Update
+            </LinkButton>
+            <LinkButton url='/delete'>
+              Delete
+            </LinkButton>
+            <LinkButton url="/lists">
+              Database
             </LinkButton>
           </div>
           
