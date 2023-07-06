@@ -1,7 +1,11 @@
 import React, { useState} from "react";
+import DeleteUser from "../components/DeleteUser";
+import DeleteFlight from "../components/DeleteFlight";
+import DeleteReservation from "../components/DeleteReservation";
 
 function DeleteItem(){
     const [selectedOption, setSelectedOption] = useState('');
+    
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
       };
@@ -15,6 +19,10 @@ function DeleteItem(){
                 <option value="flight">Flight</option>
                 <option value="reservation">Reservation</option>
             </select>
+            {selectedOption == 'user' && <DeleteUser/>}
+            {selectedOption == 'flight' && <DeleteFlight/>}
+            {selectedOption == 'reservation' && <DeleteReservation/>}
+
         </div>
       )
     
