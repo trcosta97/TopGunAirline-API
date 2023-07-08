@@ -1,15 +1,15 @@
 .linkButton{
-    background-color:rgba(53, 65, 50, 0.726);
+    background-color:transparent;
     border-radius: 10px;
     font-weight: 700;
     font-size: 18px;
     border: none;
     cursor: pointer;
-    color: rgb(247,230,196);
-    margin: 20px 30px;
+    color: #19A7CE;
+
     width: 100%;
     height: 100%;
-
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     
     
 

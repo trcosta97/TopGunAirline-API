@@ -1,13 +1,11 @@
 import React from "react"
+import HomeContent from "../components/HomeContent/HomeContent"
+
 function Home() {
 
 
   return (
-
-    <div>
-        <h1>Welcome to TOPGUN Airlines!</h1>
-        <h2>Use the buttons above to navigate through our website</h2>
-    </div>
+    <HomeContent/>
   )
 }
 

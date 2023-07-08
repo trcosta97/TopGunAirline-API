@@ -5,7 +5,7 @@ import SearchReservation from "../components/SearchReservation";
 
 function SearchItem(){
     
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState('user');
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
@@ -16,7 +16,6 @@ function SearchItem(){
         <div>
             <h3>WHAT ARE YOU LOOKING FOR?</h3>
             <select value={selectedOption} onChange={handleOptionChange}>
-                <option value="">Select an option</option>
                 <option value="user">User</option>
                 <option value="flight">Flight</option>
                 <option value="reservation">Reservation</option>

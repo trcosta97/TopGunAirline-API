@@ -10,9 +10,17 @@ function App() {
   return (
 
     <div>
-        <header className='homeHeader'>
-          <img className='homeLogo' src={homeLogo} alt="logo"/>
+      <header className='homeHeader'>
+
+        <div className='homeMain'>
+          <div className='homeLogo'>
+            <h1>TOPGUN</h1>
+            <p>Airline</p>
+          </div>
           <div className='buttons'>
+            <LinkButton url="/">
+              Home
+            </LinkButton>
             <LinkButton url="/registration">
               Register
             </LinkButton>
@@ -29,10 +37,19 @@ function App() {
               Database
             </LinkButton>
           </div>
-          
-        </header>
-        <Outlet/>
-        <footer></footer>
+        </div>
+
+
+      </header>
+      <Outlet />
+      <footer className='homeFooter'>
+        <p>Site created by Thiago Ribeiro</p>
+        <div className='homeLinks'>
+          <a href="https://www.linkedin.com/in/trcosta97/">Linkedin</a>
+          <a href="https://github.com/trcosta97/">GitHub</a>
+        </div>
+
+      </footer>
     </div>
   )
 }

@@ -5,7 +5,7 @@ import RegisterReservation from "../components/RegisterReservation";
 
 function RegisterItem(){
 
-    const [selectedOption, setSelectedOption] = useState('');
+    const [selectedOption, setSelectedOption] = useState('user');
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
       };
@@ -13,9 +13,8 @@ function RegisterItem(){
     
     return(
         <div>
-            <h3>WHAT DO YOU WANT TO REGISTER?</h3>
+            <h3>What do you want to register?</h3>
             <select value={selectedOption} onChange={handleOptionChange}>
-                <option value="">Select an option</option>
                 <option value="user">User</option>
                 <option value="flight">Flight</option>
                 <option value="reservation">Reservation</option>

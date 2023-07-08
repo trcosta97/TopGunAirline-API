@@ -1,0 +1,21 @@
+.homeMain{
+    display: flex;
+    flex-direction: row;
+}
+
+.homeMain img{
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeText h1{
+    color: #19A7CE;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.homeText h2{
+    margin-top: -2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #AFD3E2
+}
