@@ -1,7 +1,7 @@
 import './App.css'
 import { Outlet } from 'react-router-dom'
-import homeLogo from './assets/img/home-logo.png'
 import LinkButton from './components/linkButton/LinkButton'
+
 
 
 function App() {

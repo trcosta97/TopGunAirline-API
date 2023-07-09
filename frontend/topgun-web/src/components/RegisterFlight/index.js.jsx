@@ -45,9 +45,10 @@ function RegisterFlight() {
   ]
 
   return (
-    <section>
-      <h2>FLIGHT REGISTRATION</h2>
+    <section className="mainRegister">
+      
       <form onSubmit={onSave}>
+        <h2>FLIGHT REGISTRATION</h2>
         <TextInputField
           value={flightDate}
           necessary={true}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TextInputField from "../textInputField";
 import axios from "axios";
+import './RegisterUser.css'
 
 
 function RegisterUser() {
@@ -43,9 +44,10 @@ function RegisterUser() {
 
 
   return (
-    <section>
-      <h2>USER REGISTRATION</h2>
+    <section className="mainRegister">
+      
       <form onSubmit={onSave}>
+        <h2>USER REGISTRATION</h2>
         <TextInputField
           value={userName}
           necessary={true}

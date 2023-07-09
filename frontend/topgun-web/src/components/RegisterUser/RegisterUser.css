@@ -1,0 +1,26 @@
+form{
+    background-color: #19A7CE;
+    width: 60%;
+    padding: 2%;
+    border-radius: 5%;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.mainRegister{
+    
+    background-color: #AFD3E2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    margin-bottom: -2rem;
+    margin-top: 2rem;
+
+}
+
+.mainRegister button{
+    margin-top: 8%;
+}

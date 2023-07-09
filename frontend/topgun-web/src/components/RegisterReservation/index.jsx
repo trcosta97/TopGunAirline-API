@@ -46,9 +46,10 @@ function RegisterReservation(){
         ]
 
       return (
-        <section>
-          <h2>RESERVATION REGISTRATION</h2>
+        <section className="mainRegister">
+          
           <form onSubmit={onSave}>
+            <h2>RESERVATION REGISTRATION</h2>
             <TextInputField
               value={flightId}
               necessary={true}
