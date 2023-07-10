@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import './DeleteReservation.css'
+import { MainDelete } from '../../Styled/MainDelete';
 
 function DeleteReservation(){
     const [reservationId, setreservationId] = useState('');
@@ -35,12 +35,12 @@ function DeleteReservation(){
     };
 
     return(
-        <div className='mainDeleteReservation'>
+        <MainDelete>
             <h2>DELETE RESERVATION</h2>
             <input type="text" value={reservationId} onChange={handleReservationIdChange} placeholder='Enter reservation id' />
             <button onClick={getReservationById}>Search</button>
             {reservation && (
-                <div className='deleteReservation'>
+                <div>
                     <p>USER: <br /> {reservation.user.name} </p>
                     <p>FLIGHT DATE: <br /> {reservation.flight.flightDate}</p>
                     <p>ORIGIN: <br />{reservation.flight.origin}</p>
@@ -48,7 +48,7 @@ function DeleteReservation(){
                     <button onClick={deleteReservation}>Delete</button>
                 </div>
             )}
-        </div>
+        </MainDelete>
     )}
 
     export default DeleteReservation;

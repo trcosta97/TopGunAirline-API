@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
-import "./AllUsers.css"
+import { DataBaseItens } from "../../Styled/DatabaseItens";
+
 
 
 
@@ -25,11 +26,11 @@ function AllUsers(){
     
 
       return (
-        <div>
+        <DataBaseItens>
           <h1>REGISTERED USERS</h1>
-          <ul className="users">
+          <ul>
             {users.map((user, index) => (
-              <li key={index} className="user">
+              <li key={index}>
                 <p className="name">{user.name}</p>
                 <div className="email_address">
                   <p>ID: {user.id} <br /></p>
@@ -41,7 +42,7 @@ function AllUsers(){
               </li>
             ))}
           </ul>
-        </div>
+        </DataBaseItens>
       );
     }
     

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './SearchReservation.css';
+import { MainSearch } from "../../Styled/MainSearch";
+import { SearchedItem } from "../../Styled/SearchedItem";
+import { SearchedItemMain } from "../../Styled/SearchedItemMain";
 
 function SearchReservation(){
     const [reservationId, setReservationId] = useState('');
@@ -23,33 +25,33 @@ function SearchReservation(){
     };
 
     return(
-        <div className="mainReservationSearch">
+        <MainSearch>
             <h2>FIND RESERVATION</h2>
             <input type="text" value={reservationId} onChange={handleReservationIdChange} placeholder="Ente flight reservation Id" />
             <button onClick={getReservationById}>Search</button>
             {reservation && (
-                <div className="searchReservation">
-                    <div className="reservationById">
+                <SearchedItem>
+                    <SearchedItemMain>
                         <h3>RESERVATION DETAILS</h3>
-                        <div className="reservationOutputSection">
+                        <div>
                             <p>CUSTOMER NAME <br /> {reservation.user.name}</p>
                             <p>CUSTOMER EMAIL <br /> {reservation.user.email}</p>
                         </div>
-                        <div className="reservationOutputSection">
+                        <div>
                             <p>RESERVATION DATE <br /> {reservation.date}</p>
                             <p>SEATS <br /> {reservation.numberOfSeats}</p>
                             <p>VALUE <br />{reservation.payment.value}</p>
                         </div>
-                        <div className="reservationOutputSection">
+                        <div>
                             <p>FLIGHT ID <br />{reservation.flight.id}</p>
                             <p>FLIGHT DATE <br />{reservation.flight.date}</p>
                             <p>FLIGHT ORIGIN <br />{reservation.flight.origin}</p>
                             <p>FLIGHT DESTINATION <br />{reservation.flight.destination}</p>
                         </div>
-                    </div>
-                </div>
+                    </SearchedItemMain>
+                </SearchedItem>
             )}
-        </div>
+        </MainSearch>
     )
 }
 

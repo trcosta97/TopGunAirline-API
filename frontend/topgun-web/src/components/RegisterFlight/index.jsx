@@ -2,6 +2,9 @@ import { useState } from "react";
 import TextInputField from "../textInputField";
 import Dropdown from "../dropdown";
 import axios from "axios";
+import { MainRegister } from "../../Styled/mainRegister";
+import { Form } from "../../Styled/Form";
+
 
 function RegisterFlight() {
 
@@ -45,9 +48,9 @@ function RegisterFlight() {
   ]
 
   return (
-    <section className="mainRegister">
+    <MainRegister>
       
-      <form onSubmit={onSave}>
+      <Form onSubmit={onSave}>
         <h2>FLIGHT REGISTRATION</h2>
         <TextInputField
           value={flightDate}
@@ -79,8 +82,8 @@ function RegisterFlight() {
         />
 
         <button type="submit">Send</button>
-      </form>
-    </section>
+      </Form>
+    </MainRegister>
   )
 
 }

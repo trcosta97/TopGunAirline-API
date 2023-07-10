@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './SearchUser.css';
+import { MainSearch } from "../../Styled/MainSearch";
+import { SearchedItem } from "../../Styled/SearchedItem";
+import { SearchedItemMain } from "../../Styled/SearchedItemMain";
 
 function SearchUser() {
     const [email, setEmail] = useState('');
@@ -25,32 +27,29 @@ function SearchUser() {
 
 
     return (
-        <div className="mainSearchUser">
+        <MainSearch>
             <h2>FIND USER</h2>
             <input type="text" value={email} onChange={handleUserEmailChange} placeholder="Enter user email" />
             <button onClick={getUserByEmail}>Search</button>
             {user && (
-                <div className="searchUser">
-                    <div className="userByEmail">
+                <SearchedItem>
+                    <SearchedItemMain>
                         <h3>USER DETAILS</h3>
-                        <div className="userOutputSection">
+                        <div>
                             <p>NAME: <br />{user.name}</p>
                             
                             <p> EMAIL: <br /> {user.email}</p>
                         </div>
                         <h3>ADDRESS INFORMATION</h3>
-                        <div className="userOutputSection">
+                        <div>
                             <p>NUMBER: <br /> {user.address.number}</p>
                             <p>ZIP CODE: <br /> {user.address.zipCode}</p>
                             <p>COUNTRY: <br /> {user.address.country}</p>
                         </div>
-                        
-                    </div>
-                </div>
-
-
+                    </SearchedItemMain>
+                </SearchedItem>
             )}
-        </div>
+        </MainSearch>
     )
 }
 export default SearchUser

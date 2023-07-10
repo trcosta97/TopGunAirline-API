@@ -2,6 +2,8 @@ import { useState } from "react";
 import TextInputField from "../textInputField";
 import Dropdown from "../dropdown";
 import axios from "axios";
+import { MainRegister } from "../../Styled/mainRegister";
+import { Form } from "../../Styled/Form";
 
 function RegisterReservation(){
     const [flightId, setFlightId] = useState("");
@@ -46,9 +48,9 @@ function RegisterReservation(){
         ]
 
       return (
-        <section className="mainRegister">
+        <MainRegister>
           
-          <form onSubmit={onSave}>
+          <Form onSubmit={onSave}>
             <h2>RESERVATION REGISTRATION</h2>
             <TextInputField
               value={flightId}
@@ -87,8 +89,8 @@ function RegisterReservation(){
             />
         
             <button type="submit">Send</button>
-          </form>
-        </section>
+          </Form>
+        </MainRegister>
       );
     }
 

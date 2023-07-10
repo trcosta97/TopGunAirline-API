@@ -1,14 +1,6 @@
-form{
-    background-color: #19A7CE;
-    width: 60%;
-    padding: 2%;
-    border-radius: 5%;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-}
+import styled from "styled-components";
 
-.mainRegister{
-    
+export const MainRegister = styled.div`
     background-color: #AFD3E2;
     height: 100%;
     width: 100%;
@@ -19,8 +11,8 @@ form{
     margin-bottom: -2rem;
     margin-top: 2rem;
 
-}
+    button{
+        margin-top: 8%;
+    }
 
-.mainRegister button{
-    margin-top: 8%;
-}
+`

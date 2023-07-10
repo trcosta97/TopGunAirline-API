@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import UpdateFlight from "../components/UpdateFlight";
 import UpdateUser from "../components/UpdateUser";
+import UpdateReservation from "../components/UpdateReservation";
 
 function UpdateItem() {
     const [selectedOption, setSelectedOption] = useState("user");
@@ -20,6 +21,7 @@ function UpdateItem() {
 
             {selectedOption === "user" && <UpdateUser/>}
             {selectedOption === "flight" && <UpdateFlight/>}
+            {selectedOption === "reservation" && <UpdateReservation/>}
         </div>
 
     )

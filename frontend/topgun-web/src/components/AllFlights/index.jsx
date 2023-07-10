@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./AllFlights.css"
+import { DataBaseItens } from "../../Styled/DatabaseItens";
 
 function AllFlights() {
 
@@ -28,16 +28,16 @@ function AllFlights() {
     }, [selectedOption]);
 
     return (
-        <div>
+        <DataBaseItens>
             <h1>REGISTERED FLIGHTS</h1>
             <select value={selectedOption} onChange={handleOptionChange}>
                 <option value="origin">Origin</option>
                 <option value="destination">Destination</option>
             </select>
 
-            <ul className="flights">
+            <ul>
                 {flights.map((flight, index) => (
-                    <li key={index} className="flight">
+                    <li key={index}>
                         <p>Date: {flight.flightDate}</p>
                         <p>Origin: {flight.origin}</p>
                         <p>Destination: {flight.destination}</p>
@@ -45,7 +45,7 @@ function AllFlights() {
                     </li>
                 ))}
             </ul>
-        </div>
+        </DataBaseItens>
     );
 }
 

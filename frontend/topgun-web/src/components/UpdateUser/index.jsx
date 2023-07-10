@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import TextInputField from "../textInputField";
+import { Form } from "../../Styled/Form";
+import { MainUpdate } from "../../Styled/MainUpdate";
 
 
 function UpdateUser() {
@@ -63,10 +65,11 @@ function UpdateUser() {
 
 
     return (
-        <section>
-            <h2>USER UPDATE</h2>
-            <input type="text" value={userId} onChange={handleUserIdChange} placeholder="Enter user id" />
-            <form onSubmit={onSave}>
+        <div>
+           <input type="text" value={userId} onChange={handleUserIdChange} placeholder="Enter user id" />
+           <MainUpdate>
+            <Form onSubmit={onSave}>
+                <h2>USER UPDATE</h2>
                 <TextInputField
                     value={userName}
                     necessary={false}
@@ -110,8 +113,10 @@ function UpdateUser() {
                     placeholder=""
                 />
                 <button type="submit">Update</button>
-            </form>
-        </section>
+            </Form>
+        </MainUpdate> 
+        </div>
+        
     )
 
 

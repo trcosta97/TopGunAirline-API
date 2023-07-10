@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './SearchFlight.css';
+import { MainSearch } from "../../Styled/MainSearch";
+import { SearchedItem } from "../../Styled/SearchedItem";
+import { SearchedItemMain } from "../../Styled/SearchedItemMain";
 
 function SearchFlight() {
     const [flightId, setFlightId] = useState('');
@@ -25,28 +27,28 @@ function SearchFlight() {
 
 
     return (
-        <div className="mainSearchFlight">
+        <MainSearch>
             <h2>FIND FLIGHT</h2>
             <input type="text" value={flightId} onChange={handleFlightIdChange} placeholder="Enter flight Id" />
             <button onClick={getFlightById}>Search</button>
             {flight && (
-                <div className="searchFlight">
-                    <div className="flightById">
+                <SearchedItem>
+                    <SearchedItemMain>
                         <h3>FLIGHT DETAILS</h3>
-                        <div className="flightOutputSection">
+                        <div>
                             <p>DATE <br /> {flight.flightDate}</p>
                         </div>
-                        <div className="flightOutputSection">
+                        <div>
                             <p>ORIGIN <br /> {flight.origin}</p>
                             <p>DESTINATION <br /> {flight.destination}</p>
                             <p>AVAILABLE SEATS <br /> {flight.availableSeats}</p>                           
                         </div>
-                    </div>
-                </div>
+                    </SearchedItemMain>
+                </SearchedItem>
 
 
             )}
-        </div>
+        </MainSearch>
     )
 }
 export default SearchFlight

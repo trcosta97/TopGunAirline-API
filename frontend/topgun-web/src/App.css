@@ -10,7 +10,7 @@
 }
 
 .homeMain{
-  display: flex;
+  display: flex-box;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -21,6 +21,14 @@
   flex-direction: row;
   align-items: center;
   margin: 1%;
+  flex: 1;
+}
+
+.homeLogo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .homeFooter {
@@ -53,12 +61,7 @@
   margin: 2%;
 }
 
-.homeLogo {
-  
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-}
+
 
 .homeLogo h1{
   font-size: 550%;

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import TextInputField from "../textInputField";
 import Dropdown from '../dropdown'
+import { Form } from "../../Styled/Form";
+import { MainUpdate } from "../../Styled/MainUpdate";
 
 function UpdateFlight() {
     const [flightId, setFlightId] = useState('');
@@ -54,43 +56,45 @@ function UpdateFlight() {
     }
 
     return (
-        <section>
-            <h2>FLIGHT UPDATE</h2>
+        <div>
             <input type="text" value={flightId} onChange={handleFlightIdChange} placeholder="Enter flight id" />
-            <form onSubmit={onSave}>
+            <MainUpdate>
+                <Form onSubmit={onSave}>
+                    <h2>FLIGHT UPDATE</h2>
 
-                
-                <TextInputField
-                    value={flightDate}
-                    necessary={false}
-                    label="Flight Date"
-                    onChange={event => setFlightDate(event.target.value)}
-                    placeholder="YYYY-MM-DD"
-                />
-                <Dropdown
-                    value={origin}
-                    necessary={true}
-                    label="Origin"
-                    onChange={event => setOrigin(event.target.value)}
-                    items={destinations}
-                />
-                <Dropdown
-                    value={destination}
-                    necessary={true}
-                    label="Destination"
-                    onChange={event => setDestination(event.target.value)}
-                    items={destinations}
-                />
-                <TextInputField
-                    value={availabeSeats}
-                    necessary={false}
-                    label="Available Seats"
-                    onChange={event => setAvailableSeats(event.target.value)}
-                    placeholder=""
-                />
-                <button type="submit">Update</button>
-            </form>
-        </section>
+                    <TextInputField
+                        value={flightDate}
+                        necessary={false}
+                        label="Flight Date"
+                        onChange={event => setFlightDate(event.target.value)}
+                        placeholder="YYYY-MM-DD"
+                    />
+                    <Dropdown
+                        value={origin}
+                        necessary={true}
+                        label="Origin"
+                        onChange={event => setOrigin(event.target.value)}
+                        items={destinations}
+                    />
+                    <Dropdown
+                        value={destination}
+                        necessary={true}
+                        label="Destination"
+                        onChange={event => setDestination(event.target.value)}
+                        items={destinations}
+                    />
+                    <TextInputField
+                        value={availabeSeats}
+                        necessary={false}
+                        label="Available Seats"
+                        onChange={event => setAvailableSeats(event.target.value)}
+                        placeholder=""
+                    />
+                    <button type="submit">Update</button>
+                </Form>
+            </MainUpdate>
+        </div>
+        
     )
 }
 export default UpdateFlight

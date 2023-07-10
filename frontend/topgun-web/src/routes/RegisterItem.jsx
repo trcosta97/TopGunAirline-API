@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 import RegisterUser from "../components/RegisterUser";
-import RegisterFlight from "../components/RegisterFlight/index.js";
+import RegisterFlight from "../components/RegisterFlight";
 import RegisterReservation from "../components/RegisterReservation";
 
 function RegisterItem(){

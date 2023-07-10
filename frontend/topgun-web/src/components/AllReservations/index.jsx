@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./AllReservations.css"
+import { DataBaseItens } from "../../Styled/DatabaseItens";
+
 
 function AllReservations(){
 
@@ -35,16 +36,16 @@ function AllReservations(){
     }, [selectedOption]);
 
     return (
-        <div>
+        <DataBaseItens>
             <h1>REGISTERED RESERVATIONS</h1>
             <select value={selectedOption} onChange={handleOptionChange}>
                 <option value="user">User</option>
                 <option value="flight">Flight</option>
             </select>
 
-            <ul className="reservations">
+            <ul>
                 {reservations.map((reservation, index) => (
-                    <li key={index} className="reservation">
+                    <li key={index}>
                         <p>ID: {reservation.id}</p>
                         <p>Date: {reservation.reservationDate}</p>
                         <p>USER INFORMATION</p>
@@ -61,7 +62,7 @@ function AllReservations(){
                     </li>
                 ))}
             </ul>
-        </div>
+        </DataBaseItens>
     );
 }
 

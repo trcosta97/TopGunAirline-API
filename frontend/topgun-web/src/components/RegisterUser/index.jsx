@@ -1,7 +1,8 @@
 import { useState } from "react";
 import TextInputField from "../textInputField";
 import axios from "axios";
-import './RegisterUser.css'
+import { Form } from "../../Styled/Form";
+import { MainRegister } from "../../Styled/mainRegister";
 
 
 function RegisterUser() {
@@ -44,9 +45,9 @@ function RegisterUser() {
 
 
   return (
-    <section className="mainRegister">
+    <MainRegister>
       
-      <form onSubmit={onSave}>
+      <Form onSubmit={onSave}>
         <h2>USER REGISTRATION</h2>
         <TextInputField
           value={userName}
@@ -91,8 +92,8 @@ function RegisterUser() {
           placeholder=""
         />
         <button type="submit">Send</button>
-      </form>
-    </section>
+      </Form>
+    </MainRegister>
   );
 }
 
