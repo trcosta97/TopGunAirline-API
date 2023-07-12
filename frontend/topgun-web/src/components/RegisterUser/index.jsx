@@ -3,6 +3,7 @@ import TextInputField from "../textInputField";
 import axios from "axios";
 import { Form } from "../../Styled/Form";
 import { MainRegister } from "../../Styled/mainRegister";
+import { SendButton } from "../../Styled/SendButton";
 
 
 function RegisterUser() {
@@ -91,7 +92,7 @@ function RegisterUser() {
           onChange={event => setPassword(event.target.value)}
           placeholder=""
         />
-        <button type="submit">Send</button>
+        <SendButton type="submit">Send</SendButton>
       </Form>
     </MainRegister>
   );

@@ -1,23 +1,38 @@
 import { styled } from "styled-components";
 
 export const DataBaseItens = styled.div`
-    
+  background-color: #AFD3E2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
     ul{
-        justify-content: center;
-        align-items: center;
+        background-color: #19A7CE;
+        padding: 2%;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        margin-top: 2rem;
+        color: #F6F1F1;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        padding: 2rem;
+        
     }
 
     li{
-        background-color: rgb(247,230,196);
-        color:rgba(53, 65, 50, 0.726);
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        border-radius: 10px 100px / 120px 100px;
-        width: 60%;
-        font-weight: 1000;
-        margin-bottom:2% ;
-        list-style: none; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    li div{
+     display: flex;
+     flex-direction: row;
+     
+    }
+
+    p{
+        margin: 1rem;
     }
 
     select{

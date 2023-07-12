@@ -1,15 +1,16 @@
+import { TextInput } from "../../Styled/TextInput"
 import "./TextInputField.css"
 
 const TextInputField = (props) => {
     return (
         <div>
-                    <div className="textInputField">
+            <TextInput>
 
 
-            <label>{props.label}</label>
-            <input required={props.necessary} placeholder={props.placeholder} value={props.value} onChange={props.onChange} />
+                <label>{props.label}</label>
+                <input required={props.necessary} placeholder={props.placeholder} value={props.value} onChange={props.onChange} />
 
-        </div>
+            </TextInput>
         </div>
 
     )

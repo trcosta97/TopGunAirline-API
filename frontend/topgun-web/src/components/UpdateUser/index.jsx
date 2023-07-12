@@ -3,6 +3,8 @@ import axios from "axios";
 import TextInputField from "../textInputField";
 import { Form } from "../../Styled/Form";
 import { MainUpdate } from "../../Styled/MainUpdate";
+import { KeyInput } from "../../Styled/KeyInput";
+import { SendButton } from "../../Styled/SendButton";
 
 
 function UpdateUser() {
@@ -66,7 +68,7 @@ function UpdateUser() {
 
     return (
         <div>
-           <input type="text" value={userId} onChange={handleUserIdChange} placeholder="Enter user id" />
+           <KeyInput type="text" value={userId} onChange={handleUserIdChange} placeholder="Enter user id" />
            <MainUpdate>
             <Form onSubmit={onSave}>
                 <h2>USER UPDATE</h2>
@@ -112,7 +114,7 @@ function UpdateUser() {
                     onChange={event => setPassword(event.target.value)}
                     placeholder=""
                 />
-                <button type="submit">Update</button>
+                <SendButton type="submit">Update</SendButton>
             </Form>
         </MainUpdate> 
         </div>

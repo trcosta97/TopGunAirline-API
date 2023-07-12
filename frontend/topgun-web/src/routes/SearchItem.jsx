@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SearchUser from "../components/SearchUser"
 import SearchFlight from "../components/SearchFlight";
 import SearchReservation from "../components/SearchReservation";
+import { MainQuestion } from "../Styled/MainQuestion";
 
 function SearchItem(){
     
@@ -14,7 +15,7 @@ function SearchItem(){
     
     return(
         <div>
-            <h3>WHAT ARE YOU LOOKING FOR?</h3>
+            <MainQuestion>What are you looking for?</MainQuestion>
             <select value={selectedOption} onChange={handleOptionChange}>
                 <option value="user">User</option>
                 <option value="flight">Flight</option>

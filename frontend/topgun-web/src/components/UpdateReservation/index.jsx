@@ -3,6 +3,8 @@ import axios from "axios";
 import TextInputField from "../textInputField";
 import { Form } from "../../Styled/Form";
 import { MainUpdate } from "../../Styled/MainUpdate";
+import { KeyInput } from "../../Styled/KeyInput";
+import { SendButton } from "../../Styled/SendButton";
 
 function updateReservation(){
     const [reservationId, setReservationId] = useState('')
@@ -36,7 +38,7 @@ function updateReservation(){
 
     return(
         <div>
-          <input type="text" value={reservationId} onChange={handleUserIdChange} placeholder="Enter reservation id" />
+          <KeyInput type="text" value={reservationId} onChange={handleUserIdChange} placeholder="Enter reservation id" />
             <MainUpdate>
                 <Form onSubmit={onSave}>
                     <h2>RESERVATION UPDATE</h2>
@@ -47,6 +49,7 @@ function updateReservation(){
                     onChange={event => setNumberOfSeats(event.target.value)}
                     placeholder=""
                 />
+                <SendButton type="submit">Update</SendButton>
                 </Form>
             </MainUpdate>  
         </div>

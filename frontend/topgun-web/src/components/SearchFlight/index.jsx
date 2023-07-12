@@ -3,6 +3,8 @@ import axios from "axios";
 import { MainSearch } from "../../Styled/MainSearch";
 import { SearchedItem } from "../../Styled/SearchedItem";
 import { SearchedItemMain } from "../../Styled/SearchedItemMain";
+import { KeyInput } from "../../Styled/KeyInput";
+import { SendButton } from "../../Styled/SendButton";
 
 function SearchFlight() {
     const [flightId, setFlightId] = useState('');
@@ -28,26 +30,29 @@ function SearchFlight() {
 
     return (
         <MainSearch>
-            <h2>FIND FLIGHT</h2>
-            <input type="text" value={flightId} onChange={handleFlightIdChange} placeholder="Enter flight Id" />
-            <button onClick={getFlightById}>Search</button>
-            {flight && (
-                <SearchedItem>
-                    <SearchedItemMain>
-                        <h3>FLIGHT DETAILS</h3>
-                        <div>
-                            <p>DATE <br /> {flight.flightDate}</p>
-                        </div>
-                        <div>
-                            <p>ORIGIN <br /> {flight.origin}</p>
-                            <p>DESTINATION <br /> {flight.destination}</p>
-                            <p>AVAILABLE SEATS <br /> {flight.availableSeats}</p>                           
-                        </div>
-                    </SearchedItemMain>
-                </SearchedItem>
+
+                <h2>Find Flight</h2>
+                <KeyInput type="text" value={flightId} onChange={handleFlightIdChange} placeholder="Enter flight Id" />
+                <SendButton onClick={getFlightById}>Search</SendButton>
+                {flight && (
+                    <SearchedItem>
+                        <SearchedItemMain>
+                            <h3>FLIGHT DETAILS</h3>
+                            <div>
+                                <p>DATE <br /> {flight.flightDate}</p>
+                            </div>
+                            <div>
+                                <p>ORIGIN <br /> {flight.origin}</p>
+                                <p>DESTINATION <br /> {flight.destination}</p>
+                                <p>AVAILABLE SEATS <br /> {flight.availableSeats}</p>
+                            </div>
+                        </SearchedItemMain>
+                    </SearchedItem>
 
 
-            )}
+                )}
+    
+
         </MainSearch>
     )
 }

@@ -27,18 +27,22 @@ function AllUsers(){
 
       return (
         <DataBaseItens>
-          <h1>REGISTERED USERS</h1>
+          <h1>Registered Users</h1>
           <ul>
             {users.map((user, index) => (
               <li key={index}>
-                <p className="name">{user.name}</p>
-                <div className="email_address">
-                  <p>ID: {user.id} <br /></p>
-                  <p>Email: {user.email} || </p>
-                  <p>Address: {user.address.zipCode}, Number {user.address.number} - {user.address.country} </p>
+                <h3>User Detail</h3>
+                <div>
+                                <p>NAME <br />{user.name}</p>
 
-                </div>
-                
+                                <p> EMAIL <br /> {user.email}</p>
+                            </div>
+                            <h3>Address Info</h3>
+                            <div>
+                                <p>NUMBER <br /> {user.address.number}</p>
+                                <p>ZIP CODE <br /> {user.address.zipCode}</p>
+                                <p>COUNTRY <br /> {user.address.country}</p>
+                            </div>
               </li>
             ))}
           </ul>

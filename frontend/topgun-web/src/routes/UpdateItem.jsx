@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import UpdateFlight from "../components/UpdateFlight";
 import UpdateUser from "../components/UpdateUser";
 import UpdateReservation from "../components/UpdateReservation";
+import { MainQuestion } from "../Styled/MainQuestion";
 
 function UpdateItem() {
     const [selectedOption, setSelectedOption] = useState("user");
@@ -12,7 +13,7 @@ function UpdateItem() {
 
     return (
         <div>
-            <h3>WHAT DO YOU WANT TO UPDATE?</h3>
+            <MainQuestion>What do you want to update?</MainQuestion>
             <select value={selectedOption} onChange={handleOptionChange}>
                 <option value="user">User</option>
                 <option value="flight">Flight</option>

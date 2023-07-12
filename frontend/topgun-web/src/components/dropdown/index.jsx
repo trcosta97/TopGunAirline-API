@@ -1,15 +1,16 @@
-import './Dropdown.css'
+import { DropdownStyle } from '../../Styled/Dropdown'
+
 
 const Dropdown = (props) =>{
     return(
-        <div className="dropdown">
+        <DropdownStyle>
             <label>{props.label}</label>
             <select value={props.value} onChange={props.onChange} required = {props.necessary} >
                 {props.items.map(item =>{
                     return <option key={item}>{item}</option>
                 })}
             </select>
-        </div>
+        </DropdownStyle>
     )
 }
 

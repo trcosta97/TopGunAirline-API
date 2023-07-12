@@ -29,7 +29,7 @@ function AllFlights() {
 
     return (
         <DataBaseItens>
-            <h1>REGISTERED FLIGHTS</h1>
+            <h1>Registered Flight</h1>
             <select value={selectedOption} onChange={handleOptionChange}>
                 <option value="origin">Origin</option>
                 <option value="destination">Destination</option>
@@ -38,10 +38,14 @@ function AllFlights() {
             <ul>
                 {flights.map((flight, index) => (
                     <li key={index}>
-                        <p>Date: {flight.flightDate}</p>
-                        <p>Origin: {flight.origin}</p>
-                        <p>Destination: {flight.destination}</p>
-                        <p>Available Seats: {flight.availableSeats}</p>
+                        <div>
+                            <p>DATE {flight.flightDate}</p>
+                            <p>SEATS {flight.availableSeats}</p>
+                        </div>
+                        <div>
+                            <p>ORIGIN {flight.origin}</p>
+                            <p>DESTINATION {flight.destination}</p>
+                        </div>
                     </li>
                 ))}
             </ul>

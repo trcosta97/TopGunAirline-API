@@ -4,13 +4,12 @@ export const MainSearch = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #19A7CE;
 
-    button{
-        margin-top: 8%;
-    }
-
-    .mainSearchFlight input{
+    input{
         width: 20%;
         padding: 1%;
     }
+
+
 `

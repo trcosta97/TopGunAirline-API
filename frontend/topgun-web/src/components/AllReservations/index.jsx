@@ -3,7 +3,7 @@ import axios from "axios";
 import { DataBaseItens } from "../../Styled/DatabaseItens";
 
 
-function AllReservations(){
+function AllReservations() {
 
     const [reservations, setReservations] = useState([])
     const [selectedOption, setSelectedOption] = useState("user")
@@ -37,7 +37,7 @@ function AllReservations(){
 
     return (
         <DataBaseItens>
-            <h1>REGISTERED RESERVATIONS</h1>
+            <h1>Registered Reservations</h1>
             <select value={selectedOption} onChange={handleOptionChange}>
                 <option value="user">User</option>
                 <option value="flight">Flight</option>
@@ -46,19 +46,33 @@ function AllReservations(){
             <ul>
                 {reservations.map((reservation, index) => (
                     <li key={index}>
-                        <p>ID: {reservation.id}</p>
-                        <p>Date: {reservation.reservationDate}</p>
-                        <p>USER INFORMATION</p>
-                        <p>Name: {reservation.user}</p>
-                        <p>Email: {reservation.email}</p>
-                        <p>FLIGHT INFORMATION</p>
-                        <p>Origin: {reservation.flightOrigin}</p>
-                        <p>Destination: {reservation.flightDestination}</p>
-                        <p>Number of Seats: {reservation.numberOfSeats}</p>
-                        <p>PAYMENT INFORMATION</p>
-                        <p>Total Price: {reservation.price}</p>
-                        <p>Type of Payment: {reservation.typeOfPayment}</p>
-                        <p>Payment Date: {reservation.paymentDate}</p>
+                        <h3>Reservation Detail</h3>
+                        <div>
+                            <p>ID {reservation.id}</p>
+                            <p>DATE {reservation.reservationDate}</p>
+                        </div>
+
+                        <h3>USER INFORMATION</h3>
+                        <div>
+                            <p>NAME {reservation.user}</p>
+                            <p>EMAIL {reservation.email}</p>
+                        </div>
+
+                        <h3>FLIGHT INFORMATION</h3>
+                        <div>
+                            <p>ORIGIN {reservation.flightOrigin}</p>
+                        <p>DESTINATION {reservation.flightDestination}</p>
+                        <p>NUMBER OF SEATS {reservation.numberOfSeats}</p>
+                        </div>
+                        
+                        <h3>PAYMENT INFORMATION</h3>
+                        <div>
+
+                        <p>PRIVE {reservation.price}</p>
+                        <p>PAYMENT {reservation.typeOfPayment}</p>
+                        <p>DATE {reservation.paymentDate}</p>
+                        </div>
+                        
                     </li>
                 ))}
             </ul>

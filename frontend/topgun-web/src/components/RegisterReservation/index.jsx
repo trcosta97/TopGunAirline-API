@@ -4,6 +4,7 @@ import Dropdown from "../dropdown";
 import axios from "axios";
 import { MainRegister } from "../../Styled/mainRegister";
 import { Form } from "../../Styled/Form";
+import { SendButton } from "../../Styled/SendButton";
 
 function RegisterReservation(){
     const [flightId, setFlightId] = useState("");
@@ -88,7 +89,7 @@ function RegisterReservation(){
               items={paymentTypes}
             />
         
-            <button type="submit">Send</button>
+            <SendButton type="submit">Send</SendButton>
           </Form>
         </MainRegister>
       );

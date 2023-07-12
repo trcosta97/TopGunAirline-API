@@ -1,24 +1,34 @@
 import styled from "styled-components";
 
 export const SearchedItemMain = styled.div`
-    background-color: rgb(247,230,196);
+    background-color: #19A7CE;
     color:rgba(53, 65, 50, 0.726);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-radius: 10px 100px / 120px 100px;
     width: 250%;
-    font-weight: bold;
     margin-bottom:2% ;
     margin-top:2% ;
     list-style: none;
-    padding-left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     div{
         display: flex;
         flex-direction: row;
         justify-content: center;
+        margin: 0;
+        padding:0;
     }
 
     p{
-        padding: 2%;
+        margin-top: 0;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin-left: 1rem;
+        
     }
+
+    h3{
+        margin-bottom: 1rem;
+    }
+    
 `

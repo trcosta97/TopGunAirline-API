@@ -4,16 +4,8 @@ export const MainDelete = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    button{
-        background-color: rgb(247,230,196);
-        width: 20%;
-        margin-top: 2%;
-        margin-bottom:2% ;
-        padding: 1%;
-        color:rgba(53, 65, 50, 0.726);
-        font-weight: bold;
-    }   
+    color: #19A7CE;
+  
     
     input{
         width: 20%;
@@ -23,7 +15,17 @@ export const MainDelete = styled.div`
     div{
         display: flex;
         flex-direction: row;
-        justify-content: center;    
+        align-items: center;
+        background-color:#19A7CE ;
+        color: #F6F1F1;
+        border-radius: 10px;
+        padding: 2%;
     }
-
+    p{
+        margin-top: 0;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    
 `

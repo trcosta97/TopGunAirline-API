@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AllFlights from "../components/AllFlights";
 import AllUsers from "../components/AllUsers";
 import AllReservations from "../components/AllReservations";
+import { MainQuestion } from "../Styled/MainQuestion";
 
 function Lists() {
   const [selectedOption, setSelectedOption] = useState("");
@@ -12,7 +13,7 @@ function Lists() {
 
   return (
     <div>
-      <h3>WHAT ARE YOU LOOKING FOR?</h3>
+      <MainQuestion>What are you looking for?</MainQuestion>
       <select value={selectedOption} onChange={handleOptionChange}>
         <option value="">Select an option</option>
         <option value="users">Users</option>

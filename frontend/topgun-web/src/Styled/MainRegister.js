@@ -11,8 +11,6 @@ export const MainRegister = styled.div`
     margin-bottom: -2rem;
     margin-top: 2rem;
 
-    button{
-        margin-top: 8%;
-    }
+    
 
 `

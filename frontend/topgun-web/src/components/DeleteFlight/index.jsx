@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { MainDelete } from '../../Styled/MainDelete';
+import { SendButton } from '../../Styled/SendButton';
+import { KeyInput } from '../../Styled/KeyInput';
 
 
 function DeleteFlight(){
@@ -24,7 +26,7 @@ function DeleteFlight(){
 
     };
 
-    const deleteUser = () =>{
+    const deleteFlight = () =>{
         axios
             .delete(`http://localhost:8080/flight/{id}?id=${flightId}`)
             .then((res)=>{
@@ -38,15 +40,16 @@ function DeleteFlight(){
 
     return(
         <MainDelete>
-            <h2>DELETE FLIGHT</h2>
-            <input type="text" value={flightId} onChange={handleFlgihtIdChange} placeholder='Enter flight id' />
-            <button onClick={getFlightById}>Search</button>
+            
+            <h2>Delete Flight</h2>
+            <KeyInput type="text" value={flightId} onChange={handleFlgihtIdChange} placeholder='Enter flight id' />
+            <SendButton onClick={getFlightById}>Search</SendButton>
             {flight && (
                 <div>
                     <p>DATE : <br /> {flight.date}</p>
                     <p>ORIGIN : <br /> {flight.origin}</p>
                     <p>DESTINATION : <br /> {flight.destination}</p>
-                    <button onClick={deleteFlight}>Delete</button>
+                    <SendButton onClick={deleteFlight}>Delete</SendButton>
                 </div>
             )}
         </MainDelete>

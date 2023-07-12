@@ -11,7 +11,4 @@ export const MainUpdate = styled.div`
     margin-bottom: -2rem;
     margin-top: 2rem;
 
-    button{
-        margin-top: 8%;
-    }
 `

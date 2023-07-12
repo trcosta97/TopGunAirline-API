@@ -3,6 +3,8 @@ import axios from "axios";
 import { MainSearch } from "../../Styled/MainSearch";
 import { SearchedItem } from "../../Styled/SearchedItem";
 import { SearchedItemMain } from "../../Styled/SearchedItemMain";
+import { SendButton } from "../../Styled/SendButton";
+import { KeyInput } from "../../Styled/KeyInput";
 
 function SearchUser() {
     const [email, setEmail] = useState('');
@@ -28,27 +30,30 @@ function SearchUser() {
 
     return (
         <MainSearch>
-            <h2>FIND USER</h2>
-            <input type="text" value={email} onChange={handleUserEmailChange} placeholder="Enter user email" />
-            <button onClick={getUserByEmail}>Search</button>
-            {user && (
-                <SearchedItem>
-                    <SearchedItemMain>
-                        <h3>USER DETAILS</h3>
-                        <div>
-                            <p>NAME: <br />{user.name}</p>
-                            
-                            <p> EMAIL: <br /> {user.email}</p>
-                        </div>
-                        <h3>ADDRESS INFORMATION</h3>
-                        <div>
-                            <p>NUMBER: <br /> {user.address.number}</p>
-                            <p>ZIP CODE: <br /> {user.address.zipCode}</p>
-                            <p>COUNTRY: <br /> {user.address.country}</p>
-                        </div>
-                    </SearchedItemMain>
-                </SearchedItem>
-            )}
+
+                <h2>Find User</h2>
+                <KeyInput type="text" value={email} onChange={handleUserEmailChange} placeholder="Enter user email" />
+                <SendButton onClick={getUserByEmail}>Search</SendButton>
+                {user && (
+                    <SearchedItem>
+                        <SearchedItemMain>
+                            <h3>User Details</h3>
+                            <div>
+                                <p>NAME <br />{user.name}</p>
+
+                                <p> EMAIL <br /> {user.email}</p>
+                            </div>
+                            <h3>Address Info</h3>
+                            <div>
+                                <p>NUMBER <br /> {user.address.number}</p>
+                                <p>ZIP CODE <br /> {user.address.zipCode}</p>
+                                <p>COUNTRY <br /> {user.address.country}</p>
+                            </div>
+                        </SearchedItemMain>
+                    </SearchedItem>
+                )}
+
+
         </MainSearch>
     )
 }

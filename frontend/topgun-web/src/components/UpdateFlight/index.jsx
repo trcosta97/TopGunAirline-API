@@ -4,6 +4,8 @@ import TextInputField from "../textInputField";
 import Dropdown from '../dropdown'
 import { Form } from "../../Styled/Form";
 import { MainUpdate } from "../../Styled/MainUpdate";
+import { KeyInput } from "../../Styled/KeyInput";
+import { SendButton } from "../../Styled/SendButton";
 
 function UpdateFlight() {
     const [flightId, setFlightId] = useState('');
@@ -57,7 +59,7 @@ function UpdateFlight() {
 
     return (
         <div>
-            <input type="text" value={flightId} onChange={handleFlightIdChange} placeholder="Enter flight id" />
+            <KeyInput type="text" value={flightId} onChange={handleFlightIdChange} placeholder="Enter flight id" />
             <MainUpdate>
                 <Form onSubmit={onSave}>
                     <h2>FLIGHT UPDATE</h2>
@@ -90,7 +92,7 @@ function UpdateFlight() {
                         onChange={event => setAvailableSeats(event.target.value)}
                         placeholder=""
                     />
-                    <button type="submit">Update</button>
+                    <SendButton type="submit">Update</SendButton>
                 </Form>
             </MainUpdate>
         </div>

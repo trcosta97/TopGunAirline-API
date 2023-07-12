@@ -2,6 +2,7 @@ import React, { useState} from "react";
 import DeleteUser from "../components/DeleteUser";
 import DeleteFlight from "../components/DeleteFlight";
 import DeleteReservation from "../components/DeleteReservation";
+import { MainQuestion } from "../Styled/MainQuestion";
 
 function DeleteItem(){
     const [selectedOption, setSelectedOption] = useState('user');
@@ -12,7 +13,7 @@ function DeleteItem(){
 
       return(
         <div>
-            <h3>WHAT DO YOU WANT TO DELETE?</h3>
+            <MainQuestion>What do you want to delete?</MainQuestion>
             <select value={selectedOption} onChange={handleOptionChange}>
                 <option value="user">User</option>
                 <option value="flight">Flight</option>

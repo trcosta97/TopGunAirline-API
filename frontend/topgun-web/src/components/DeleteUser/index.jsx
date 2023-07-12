@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { MainDelete } from '../../Styled/MainDelete';
+import { SendButton } from '../../Styled/SendButton';
+import { KeyInput } from '../../Styled/KeyInput';
+
 
 function DeleteUser(){
     const [userId, setUserId] = useState('');
@@ -35,19 +38,21 @@ function DeleteUser(){
             });
     };
 
-    return(
+    return (
         <MainDelete>
-            <h2>DELETE USER</h2>
-            <input type="text" value={userId} onChange={handleUserIdChange} placeholder='Enter user id' />
-            <button onClick={getUserById}>Search</button>
-            {user && (
-                <div>
-                    <p>NAME : <br /> {user.name}</p>
-                    <p>EMAIL : <br /> {user.email}</p>
-                    <button onClick={deleteUser}>Delete</button>
-                </div>
-            )}
+          <h2>Delete User</h2>
+          <KeyInput type="text" value={userId} onChange={handleUserIdChange} placeholder='Enter user id' />
+          <SendButton onClick={getUserById}>Search</SendButton>
+          {user && (
+            <div>
+              <p>NAME <br /> {user.name}</p>
+              <p>EMAIL <br /> {user.email}</p>
+              <SendButton onClick={deleteUser}>Delete</SendButton> 
+            </div>
+            
+          )}
         </MainDelete>
-    )
+      );
+      
 } 
 export default DeleteUser
