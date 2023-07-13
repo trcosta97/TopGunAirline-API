@@ -8,6 +8,7 @@ import com.topgun.airline.domain.user.User;
 import com.topgun.airline.service.FlightService;
 import com.topgun.airline.service.ReservationService;
 import com.topgun.airline.service.UserService;
+import com.topgun.airline.validation.ReservationValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,9 +25,12 @@ public class ReservationController {
     private UserService userService;
     @Autowired
     private FlightService flightService;
+    @Autowired
+    private ReservationValidation reservationValidation;
     @Transactional
     @PostMapping("/reservation")
     public ResponseEntity<Reservation> save(@RequestBody ReservationDTO data) {
+        reservationValidation.reservationValidation(data);
         User user = userService.findUserById(data.userId());
         if (user == null) {
             throw new IllegalArgumentException("User not found");

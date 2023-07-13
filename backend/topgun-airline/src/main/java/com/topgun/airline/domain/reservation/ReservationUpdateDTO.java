@@ -1,6 +1,8 @@
 package com.topgun.airline.domain.reservation;
 
-import com.topgun.airline.domain.payment.Payment;
+import jakarta.validation.constraints.NotNull;
 
-public record ReservationUpdateDTO(Integer numberOfSeats) {
+public record ReservationUpdateDTO(
+        @NotNull
+        Integer numberOfSeats) {
 }
