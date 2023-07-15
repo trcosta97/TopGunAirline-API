@@ -5,10 +5,12 @@ import com.topgun.airline.domain.user.User;
 import com.topgun.airline.domain.user.UserDTO;
 import com.topgun.airline.service.UserService;
 import com.topgun.airline.validation.UserValidation;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
@@ -21,11 +23,12 @@ public class UserController {
     private UserValidation userValidation;
     @Transactional
     @PostMapping("/user")
-    public ResponseEntity<User> save(@RequestBody UserDTO data){
+    public ResponseEntity<User> save(@RequestBody @Valid UserDTO data, UriComponentsBuilder uriBuilder){
         userValidation.userValidation(data);
         var newUser = new User(data);
         User savedUser = userService.saveUser(newUser);
-        return ResponseEntity.ok(savedUser);
+        var uri = uriBuilder.path("/user/{id}").buildAndExpand(savedUser.getId()).toUri();
+        return ResponseEntity.created(uri).body(savedUser);
     }
 
     @GetMapping("/user/{id}")

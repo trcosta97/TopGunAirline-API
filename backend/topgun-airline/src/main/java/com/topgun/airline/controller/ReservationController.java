@@ -9,10 +9,12 @@ import com.topgun.airline.service.FlightService;
 import com.topgun.airline.service.ReservationService;
 import com.topgun.airline.service.UserService;
 import com.topgun.airline.validation.ReservationValidation;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class ReservationController {
     private ReservationValidation reservationValidation;
     @Transactional
     @PostMapping("/reservation")
-    public ResponseEntity<Reservation> save(@RequestBody ReservationDTO data) {
+    public ResponseEntity<Reservation> save(@RequestBody @Valid ReservationDTO data, UriComponentsBuilder uriBuilder) {
         reservationValidation.reservationValidation(data);
         User user = userService.findUserById(data.userId());
         if (user == null) {
@@ -46,7 +48,8 @@ public class ReservationController {
 
         Reservation savedReservation = reservationService.saveReservation(reservation);
 
-        return ResponseEntity.ok(savedReservation);
+        var uri = uriBuilder.path("reservation/{id}").buildAndExpand(savedReservation.getId()).toUri();
+        return ResponseEntity.created(uri).body(savedReservation);
     }
 
     @GetMapping("/reservation/{id}")

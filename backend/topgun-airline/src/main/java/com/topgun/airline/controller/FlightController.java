@@ -5,11 +5,14 @@ import com.topgun.airline.domain.flight.Flight;
 import com.topgun.airline.domain.flight.FlightDTO;
 import com.topgun.airline.service.FlightService;
 import com.topgun.airline.validation.FlightValidation;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriBuilder;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
@@ -22,11 +25,13 @@ public class FlightController {
     private FlightValidation validation;
     @Transactional
     @PostMapping("/flight")
-    public ResponseEntity<Flight> save(@RequestBody FlightDTO data){
+    public ResponseEntity<Flight> save(@RequestBody @Valid FlightDTO data, UriComponentsBuilder uriBuilder){
         validation.flightValidation(data);
         var flight = new Flight(data);
         Flight savedFlight = flightService.saveFlight(flight);
-        return ResponseEntity.ok(savedFlight);
+
+        var uri = uriBuilder.path("/flight/{id}").buildAndExpand(savedFlight.getId()).toUri();
+        return ResponseEntity.created(uri).body(savedFlight);
     }
 
     @GetMapping("/flight/all")
