@@ -4,6 +4,15 @@ This is a study project that simulates an Airline API and a website that consume
 For the frontend, I chose the React JS framework.  
 Once again, this project was developed for studying purposes, so any comments or criticism are more than welcome.  
 
+# Businnes Rules
+
+- The user email is unique;  
+- The user password can't match it's email;  
+- The user password must contain letters and numbers;  
+- A flight can't have it's destination matching it's origin or the other way around;  
+- A flight date can't be retractive;
+- A reservation can't have more seats than it's flight have available;  
+
 # How to init the project
 
 First you need to start the API. Open it with your favorite IDE (I used JetBrains IntelliJ). then run the build command in the command line:
