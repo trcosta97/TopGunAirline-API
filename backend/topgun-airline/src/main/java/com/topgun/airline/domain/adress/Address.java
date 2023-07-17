@@ -33,11 +33,21 @@ public class Address {
     @Column(name = "active_address", columnDefinition = "BIT(1) DEFAULT 1")
     private Boolean active=true;
 
+    public Address(Long id, String zipCode, String number, String country, Boolean active) {
+        this.id = id;
+        this.zipCode = zipCode;
+        this.number = number;
+        this.country = country;
+        this.active = active;
+    }
+
     public Address(AddressDTO data){
         this.zipCode = data.zipCode();
         this.number = data.number();
         this.country = data.country();
     }
+
+
 
 }
 

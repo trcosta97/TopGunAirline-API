@@ -15,5 +15,6 @@ public record FlightDTO(
         @NotNull
         Airport destination,
         @NotNull
-        Integer availableSeats) {
+        Integer availableSeats){
+
 }

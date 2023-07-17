@@ -53,4 +53,13 @@ public class Payment {
     protected void prePersist() {
         payDate = LocalDateTime.now();
     }
+
+    public Payment(Long id, User user, BigDecimal value, TypeOfPayment typeOfPayment, LocalDateTime payDate, Boolean active) {
+        this.id = id;
+        this.user = user;
+        this.value = value;
+        this.typeOfPayment = typeOfPayment;
+        this.payDate = payDate;
+        this.active = active;
+    }
 }

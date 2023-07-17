@@ -49,8 +49,4 @@ public class Flight {
         this.availableSeats = data.availableSeats();
     }
 
-    @PrePersist
-    protected void prePersist() {
-        flightDate = LocalDate.now();
-    }
 }
