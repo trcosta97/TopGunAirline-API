@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.time.LocalDate;
 
@@ -66,5 +67,42 @@ class FlightControllerTest {
         ).getJson();
 
         assertThat(response.getContentAsString()).isEqualTo(expectedJson);
+    }
+
+    @Test
+    @DisplayName("Should return 200 and return header 'Ordered by: Flight date'")
+    void get_1() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/flight/all")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.header().string("Ordered by: ", "Flight date"));
+    }
+
+    @Test
+    @DisplayName("Should return 200 and return header 'Ordered by: Flight destination'")
+    void get_2() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/flight/destination")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.header().string("Ordered by: ", "Flight destination"));
+    }
+
+    @Test
+    @DisplayName("Should return 200 and return header 'Ordered by: Flight origin'")
+    void get_3() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/flight/origin")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.header().string("Ordered by: ", "Flight origin"));
+    }
+
+    @Test
+    @DisplayName("Should return 200 and return header 'Ordered by: Flight origin'")
+    void get_4() throws Exception {
+        Long flightId = 1L;
+
+        mvc.perform(MockMvcRequestBuilders.get("/flight/{id}", flightId)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }
