@@ -47,4 +47,13 @@ public class User {
         this.email = (data.email() != null) ? data.email() : this.email;
         this.password = (data.password() != null) ? data.password() : this.password;
     }
+
+    public User(Long id, String name, Address address, String email, String password, List<Reservation> reservations) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.password = password;
+        this.reservations = reservations;
+    }
 }

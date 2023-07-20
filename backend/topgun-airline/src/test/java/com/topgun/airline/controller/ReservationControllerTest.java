@@ -23,6 +23,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -127,6 +128,34 @@ class ReservationControllerTest {
     }
 
 
+
+    @Test
+    @DisplayName("Should return http 200 and all reservations")
+    void get_1() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/reservation/all")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+
+    @Test
+    @DisplayName("Should return http 200 and user defined by ID")
+    void get_2() throws Exception {
+        Long reservationId = 1L;
+
+        mvc.perform(MockMvcRequestBuilders.get("/reservation/{id}", reservationId)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+    @Test
+    @DisplayName("return http 200 and reservation by flight defined")
+    void get_3() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/reservation/flight")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
+
+    }
 
 }
 

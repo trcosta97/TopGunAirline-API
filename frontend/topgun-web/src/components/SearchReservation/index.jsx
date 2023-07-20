@@ -16,7 +16,7 @@ function SearchReservation() {
 
     const getReservationById = () => {
         axios
-            .get(`http://localhost:8080/reservation/{id}?id=${reservationId}`)
+            .get(`http://localhost:8080/reservation/${reservationId}`)
             .then((res) => {
                 setReservation(res.data);
             })
