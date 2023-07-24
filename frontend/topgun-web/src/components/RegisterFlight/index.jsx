@@ -10,15 +10,21 @@ import { SendButton } from "../../Styled/SendButton";
 function RegisterFlight() {
 
   const [flightDate, setFlightDate] = useState('');
+  const [flightTime, setFlightTime] = useState('')
   const [origin, setOrigin] = useState('');
   const [destination, setDestination] = useState('');
   const [availableSeats, setAvailableSeats] = useState('');
 
+  const flightDateTime = `${flightDate}T${flightTime}:00.000Z`;
+
 
   const onSave = (event) => {
     event.preventDefault();
+
+    const flightDateTime = `${flightDate}T${flightTime}:00.000Z`;
+    
     const data = {
-      flightDate: flightDate,
+      flightDate: flightDateTime,
       origin: origin,
       destination: destination,
       availableSeats: availableSeats
@@ -29,7 +35,7 @@ function RegisterFlight() {
       .then(response => {
         console.log(response.data);
         alert("Flight saved!");
-        setFlightDate("");
+        flightDateTime("");
         setOrigin("");
         setDestination("");
         setAvailableSeats("");
@@ -59,6 +65,13 @@ function RegisterFlight() {
           label="Flight Date"
           onChange={event => setFlightDate(event.target.value)}
           placeholder="YYYY-MM-DD"
+        />
+        <TextInputField
+          value={flightTime}
+          necessary={true}
+          label="Flight Time"
+          onChange={event => setFlightTime(event.target.value)}
+          placeholder="HH:MM"
         />
         <Dropdown
           value={origin}

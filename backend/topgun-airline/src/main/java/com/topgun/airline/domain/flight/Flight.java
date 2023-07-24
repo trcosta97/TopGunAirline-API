@@ -6,12 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Entity
 @Table(name = "tb_flight")
@@ -24,9 +21,9 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_flight")
     private Long id;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date_flight_date", nullable = false)
-    private LocalDate flightDate;
+    private LocalDateTime flightDate;
     @Column(name = "origin_flight", nullable = false)
     @Enumerated(EnumType.STRING)
     private Airport origin;

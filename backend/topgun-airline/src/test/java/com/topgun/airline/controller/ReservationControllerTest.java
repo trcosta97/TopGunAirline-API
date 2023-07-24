@@ -26,7 +26,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -55,7 +54,7 @@ class ReservationControllerTest {
     @BeforeEach
     public void setup() {
         String dateString = "2023-11-11";
-        LocalDate date = LocalDate.parse(dateString);
+        LocalDateTime date = LocalDateTime.of(2024, 2, 19, 10, 0);
         Integer availableSeats = 500;
 
         Flight flight = new Flight(1L, date, Airport.GRU, Airport.BSB, availableSeats, true);
@@ -82,7 +81,7 @@ class ReservationControllerTest {
     @DisplayName("Should return http 200 when info is valid")
     void save_2() throws Exception {
         String dateString = "2023-11-11";
-        LocalDate date = LocalDate.parse(dateString);
+        LocalDateTime date = LocalDateTime.of(2024, 2, 19, 10, 0);
 
         var paymentDto = new PaymentDTO(1L, new BigDecimal(3000), TypeOfPayment.CREDIT);
 

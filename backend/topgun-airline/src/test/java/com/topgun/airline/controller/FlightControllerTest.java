@@ -1,20 +1,14 @@
 package com.topgun.airline.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
 import com.topgun.airline.domain.Airport;
-import com.topgun.airline.domain.adress.Address;
-import com.topgun.airline.domain.adress.AddressDTO;
 import com.topgun.airline.domain.flight.Flight;
 import com.topgun.airline.domain.flight.FlightDTO;
 
-import com.topgun.airline.domain.user.User;
-import com.topgun.airline.domain.user.UserDTO;
+
 import com.topgun.airline.service.FlightService;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters;
@@ -24,17 +18,16 @@ import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.time.LocalDate;
 
+import java.time.LocalDateTime;
+
+import static com.topgun.airline.controller.UserControllerTest.asJsonString;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
@@ -53,8 +46,6 @@ class FlightControllerTest {
     FlightService flightService;
 
 
-
-
     @Test
     @DisplayName("Should return http 400 when requires info are null")
     public void save_1() throws Exception {
@@ -67,9 +58,7 @@ class FlightControllerTest {
     @Test
     @DisplayName("Should return http 200 when info is valid")
     void save_2() throws Exception {
-        String dateString = "2023-11-11";
-        LocalDate date = LocalDate.parse(dateString);
-        Integer availableSeats = 500;
+        LocalDateTime date = LocalDateTime.of(2024, 2, 19, 10, 0);
 
         var response = mvc
                 .perform(
@@ -77,7 +66,7 @@ class FlightControllerTest {
                                 .post("/flight")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(flightDTOJson.write(
-                                        new FlightDTO(date, Airport.GRU, Airport.BSB, availableSeats)
+                                        new FlightDTO(date, Airport.GRU, Airport.BSB, 500)
                                 ).getJson())
                 )
                 .andReturn().getResponse();
@@ -85,7 +74,7 @@ class FlightControllerTest {
         assertThat(response.getStatus()).isEqualTo(HttpStatus.CREATED.value());
 
         var expectedJson = flightJson.write(
-                new Flight(1L, date, Airport.GRU, Airport.BSB, availableSeats, true)
+                new Flight(1L, date, Airport.GRU, Airport.BSB, 500, true)
         ).getJson();
 
         assertThat(response.getContentAsString()).isEqualTo(expectedJson);
@@ -132,20 +121,16 @@ class FlightControllerTest {
     @DisplayName("Should return http 200")
     public void update() throws Exception {
         Long flightId = 1L;
-        String dateString = "2023-11-11";
-        LocalDate date = LocalDate.parse(dateString);
-        Integer availableSeats = 500;
-
+        LocalDateTime date = LocalDateTime.of(2024, 2, 19, 10, 0);
 
         FlightDTO flightDTO = new FlightDTO(
                 date,
                 Airport.BSB,
                 Airport.CGH,
-                availableSeats
-
+                500
         );
 
-        Flight updatedFlight = new Flight(flightId, date, Airport.BSB, Airport.SDU,availableSeats,null );
+        Flight updatedFlight = new Flight(flightId, date, Airport.BSB, Airport.SDU, 500, null);
 
         when(flightService.updateFlight(any(Long.class), any(Flight.class))).thenReturn(updatedFlight);
 
@@ -155,16 +140,4 @@ class FlightControllerTest {
                         .content(asJsonString(flightDTO)))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
-
-    private static String asJsonString(Object obj) {
-        try {
-            return new ObjectMapper().writeValueAsString(obj);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-
-
 }
