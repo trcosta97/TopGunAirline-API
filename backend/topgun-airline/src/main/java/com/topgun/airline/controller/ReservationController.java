@@ -9,6 +9,7 @@ import com.topgun.airline.service.FlightService;
 import com.topgun.airline.service.ReservationService;
 import com.topgun.airline.service.UserService;
 import com.topgun.airline.validation.ReservationValidation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.List;
 
 @RestController
+@SecurityRequirement(name = "bearer-key")
 public class ReservationController {
 
     @Autowired

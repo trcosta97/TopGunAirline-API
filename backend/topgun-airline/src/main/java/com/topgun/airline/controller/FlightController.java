@@ -5,6 +5,7 @@ import com.topgun.airline.domain.flight.Flight;
 import com.topgun.airline.domain.flight.FlightDTO;
 import com.topgun.airline.service.FlightService;
 import com.topgun.airline.validation.FlightValidation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -16,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.util.List;
 
 @RestController
+@SecurityRequirement(name = "bearer-key")
 public class FlightController {
 
     @Autowired

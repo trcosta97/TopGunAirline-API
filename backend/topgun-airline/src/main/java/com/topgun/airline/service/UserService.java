@@ -4,6 +4,7 @@ package com.topgun.airline.service;
 import com.topgun.airline.domain.user.UserRepository;
 import com.topgun.airline.domain.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,12 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     public User saveUser(User newUser){
+
+        newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
         return userRepository.save(newUser);
     }
 
@@ -26,8 +32,7 @@ public class UserService {
     }
 
     public User findUserByEmail(String email){
-        Optional<User> optionalUser = userRepository.findByEmail(email);
-        return optionalUser.orElse(null);
+        return userRepository.findByEmail(email);
     }
 
     public List<User> findAllUsers(){
