@@ -27,7 +27,7 @@ public class SecurityConfiguration {
                 .cors()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authorizeHttpRequests()
-                .requestMatchers(HttpMethod.GET, "/chat").permitAll()
+                .requestMatchers(HttpMethod.GET, "/flight").permitAll()
                 .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
                 .anyRequest().authenticated()
                 .and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
