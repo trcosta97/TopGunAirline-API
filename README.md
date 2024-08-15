@@ -2,7 +2,7 @@
 
 This is a study project that simulates an Airline API and a website that consumes it. The API was built using Java 17 and the Spring Boot framework, with Gradle as the dependency manager.  
 For the frontend, I chose the React JS framework.  
-Once again, this project was developed for studying purposes, so any comments or criticism are more than welcome.  
+Once again: this project was developed for studying purposes, so any comments or criticism are more than welcome.  
 
 # Businnes Rules
 
