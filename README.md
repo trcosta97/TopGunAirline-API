@@ -20,7 +20,7 @@ First you need to start the API. Open it with your favorite IDE (I used JetBrain
   gradle build
 ```
 
-After that start the main file:
+After that, run the main file:
 
 ![Captura de tela 2023-06-19 172305](https://github.com/trcosta97/top-gun-airline/assets/101136329/dc782590-9d85-409a-bfc5-0a5eed25e41c)
 
